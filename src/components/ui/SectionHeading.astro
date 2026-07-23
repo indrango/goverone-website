@@ -1,0 +1,26 @@
+---
+import Badge from './Badge.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  body?: string;
+  align?: 'left' | 'center';
+  size?: 'xl' | 'lg' | 'md';
+  width?: 'standard' | 'narrow';
+}
+
+const {
+  eyebrow,
+  title,
+  body,
+  align = 'left',
+  size = 'lg',
+  width = 'standard',
+} = Astro.props;
+---
+<div class={`section-heading section-heading--${align} section-heading--${width}`}>
+  {eyebrow && <Badge variant="brand">{eyebrow}</Badge>}
+  <h2 class={`section-heading__title section-heading__title--${size}`}>{title}</h2>
+  {body && <p class="section-heading__body">{body}</p>}
+</div>

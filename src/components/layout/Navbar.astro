@@ -1,0 +1,69 @@
+---
+import Button from '../ui/Button.astro';
+import Container from './Container.astro';
+import { navigation } from '../../content/landing-page';
+---
+<header class="site-header" id="top">
+  <Container variant="content">
+    <div class="site-header__inner">
+      <a class="site-brand" href="#hero">{navigation.brand}</a>
+      <nav class="site-nav site-nav--desktop" aria-label="Primary navigation">
+        <ul>
+          {navigation.items.map((item) => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+      <div class="site-header__actions site-header__actions--desktop">
+        <a class="site-login-link" href={navigation.secondaryLink.href}>{navigation.secondaryLink.label}</a>
+        <Button href={navigation.primaryCta.href} variant="primary" size="md">{navigation.primaryCta.label}</Button>
+      </div>
+      <button class="site-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span>Menu</span>
+      </button>
+    </div>
+  </Container>
+  <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
+    <Container variant="content">
+      <nav class="site-nav site-nav--mobile" aria-label="Mobile navigation">
+        <ul>
+          {navigation.items.map((item) => (
+            <li><a href={item.href} data-mobile-link>{item.label}</a></li>
+          ))}
+          <li><a href={navigation.secondaryLink.href} data-mobile-link>{navigation.secondaryLink.label}</a></li>
+        </ul>
+        <Button href={navigation.primaryCta.href} variant="primary" size="lg">{navigation.primaryCta.label}</Button>
+      </nav>
+    </Container>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]');
+  const menu = document.querySelector('[data-mobile-menu]');
+  const links = Array.from(document.querySelectorAll('[data-mobile-link]'));
+
+  if (toggle instanceof HTMLButtonElement && menu instanceof HTMLElement) {
+    const closeMenu = () => {
+      menu.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.removeAttribute('data-menu-open');
+    };
+
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        closeMenu();
+      } else {
+        menu.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.setAttribute('data-menu-open', 'true');
+      }
+    });
+
+    links.forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) closeMenu();
+    });
+  }
+</script>

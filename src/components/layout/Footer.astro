@@ -1,0 +1,31 @@
+---
+import Container from './Container.astro';
+import { footer } from '../../content/landing-page';
+
+const groups = [
+  { title: 'Product', links: footer.product },
+  { title: 'Solutions', links: footer.solutions },
+  { title: 'Company', links: footer.company },
+  { title: 'Legal', links: footer.legal },
+];
+---
+<footer class="site-footer" id="footer">
+  <Container variant="content">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand-block">
+        <a class="site-brand" href="#hero">GoverOne</a>
+        <p class="site-footer__closing">{footer.closingLine}</p>
+      </div>
+      {groups.map((group) => (
+        <div class="site-footer__group">
+          <h3>{group.title}</h3>
+          <ul>
+            {group.links.map((link) => (
+              <li><a href={link.href}>{link.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+</footer>

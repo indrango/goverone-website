@@ -1,0 +1,19 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { faqItems } from '../../content/faq';
+---
+<MarketingSection id="faq" spacing="default">
+  <Container variant="narrow">
+    <SectionHeading title="FAQ" align="center" width="narrow" size="md" />
+    <div class="faq-list">
+      {faqItems.map((item) => (
+        <details class="faq-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Container>
+</MarketingSection>

@@ -1,0 +1,24 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Button from '../ui/Button.astro';
+import { howItWorks } from '../../content/landing-page';
+---
+<MarketingSection id="how-it-works" surface="brand-subtle" spacing="default">
+  <Container variant="content">
+    <SectionHeading title={howItWorks.title} align="center" width="narrow" size="lg" />
+    <div class="workflow-grid">
+      {howItWorks.steps.map((step, index) => (
+        <article class="workflow-step">
+          <div class="workflow-step__index">0{index + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.body}</p>
+        </article>
+      ))}
+    </div>
+    <div class="section-actions section-actions--center">
+      <Button href={howItWorks.cta.href} variant="outline" size="lg">{howItWorks.cta.label}</Button>
+    </div>
+  </Container>
+</MarketingSection>

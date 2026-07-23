@@ -1,0 +1,64 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Button from '../ui/Button.astro';
+import { finalCta } from '../../content/landing-page';
+---
+<MarketingSection id="final-cta" surface="dark" spacing="featured">
+  <Container variant="content">
+    <div class="final-cta-grid">
+      <div>
+        <SectionHeading title={finalCta.title} body={finalCta.body} size="lg" />
+        <div class="final-cta__actions">
+          <Button href="#demo-form" variant="primary" size="lg">{finalCta.actions[0].label}</Button>
+          <Button href="#demo-form" variant="secondary" size="lg">{finalCta.actions[1].label}</Button>
+        </div>
+        <p class="final-cta__microcopy">{finalCta.microcopy}</p>
+      </div>
+      <form class="lead-form-card" id="demo-form">
+        <div class="lead-form-card__header">
+          <p class="lead-form-card__eyebrow">Jadwalkan Demo</p>
+          <h3>Ceritakan kebutuhan implementasi Anda.</h3>
+        </div>
+        <div class="lead-form-card__grid">
+          <label>
+            <span>Nama</span>
+            <input type="text" name="name" autocomplete="name" placeholder="Nama lengkap" />
+          </label>
+          <label>
+            <span>Email kerja</span>
+            <input type="email" name="email" autocomplete="email" placeholder="nama@perusahaan.com" />
+          </label>
+          <label>
+            <span>Tipe organisasi</span>
+            <select name="organization-type">
+              <option>Konsultan</option>
+              <option>Perusahaan</option>
+            </select>
+          </label>
+          <label>
+            <span>Jumlah active project atau entity</span>
+            <input type="text" name="active-projects" placeholder="Contoh: 3 project" />
+          </label>
+          <label class="lead-form-card__full">
+            <span>Apakah sedang menjalankan ISO 27001?</span>
+            <select name="iso-status">
+              <option>Ya, sedang berjalan</option>
+              <option>Belum, sedang merencanakan</option>
+            </select>
+          </label>
+          <label class="lead-form-card__full">
+            <span>Catatan kebutuhan</span>
+            <textarea name="notes" rows="3" placeholder="Jelaskan workflow atau kebutuhan tim Anda"></textarea>
+          </label>
+          <label class="lead-form-card__full">
+            <span>Preferred demo schedule</span>
+            <input type="text" name="schedule" placeholder="Hari dan waktu yang nyaman" />
+          </label>
+        </div>
+        <button class="lead-form-card__submit" type="submit">Jadwalkan Demo</button>
+      </form>
+    </div>
+  </Container>
+</MarketingSection>

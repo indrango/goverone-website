@@ -1,0 +1,32 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { comparison } from '../../content/landing-page';
+---
+<MarketingSection id="why-goverone" spacing="default">
+  <Container variant="content">
+    <SectionHeading title={comparison.title} width="narrow" size="lg" />
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Cara kerja</th>
+            <th>Yang dapat dikelola</th>
+            <th>Keterbatasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          {comparison.rows.map((row) => (
+            <tr class={row.highlight ? 'comparison-table__row--highlight' : ''}>
+              <th data-label="Cara kerja">{row.label}</th>
+              <td data-label="Yang dapat dikelola">{row.manageable}</td>
+              <td data-label="Keterbatasan">{row.limitation}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="section-supporting-copy">{comparison.supporting}</p>
+  </Container>
+</MarketingSection>

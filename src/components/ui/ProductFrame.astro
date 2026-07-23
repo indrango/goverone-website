@@ -1,0 +1,21 @@
+---
+interface Props {
+  title?: string;
+  caption?: string;
+  className?: string;
+}
+const { title, caption, className = '' } = Astro.props;
+---
+<div class={`product-frame ${className}`.trim()}>
+  {(title || caption) && (
+    <div class="product-frame__bar">
+      <div>
+        {title && <p class="product-frame__title">{title}</p>}
+        {caption && <p class="product-frame__caption">{caption}</p>}
+      </div>
+    </div>
+  )}
+  <div class="product-frame__body">
+    <slot />
+  </div>
+</div>

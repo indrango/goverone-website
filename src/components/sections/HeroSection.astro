@@ -1,0 +1,101 @@
+---
+import Container from '../layout/Container.astro';
+import Button from '../ui/Button.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import ProductFrame from '../ui/ProductFrame.astro';
+import Badge from '../ui/Badge.astro';
+import { hero } from '../../content/landing-page';
+---
+<MarketingSection id="hero" spacing="featured" className="hero-section">
+  <Container variant="content">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <Badge variant="brand">{hero.eyebrow}</Badge>
+        <h1>{hero.title}</h1>
+        <p class="hero-copy__body">{hero.body}</p>
+        <div class="hero-actions">
+          {hero.actions.map((action, index) => (
+            <Button href={action.href} variant={index === 0 ? 'primary' : 'secondary'} size="lg">{action.label}</Button>
+          ))}
+        </div>
+        <p class="hero-copy__supporting">{hero.supportingLine}</p>
+      </div>
+      <ProductFrame title="GoverOne workspace" caption="Project portfolio, control detail, dan bukti implementasi dalam satu konteks" className="hero-product-frame">
+        <div class="hero-product-grid" aria-label="GoverOne product evidence showcase">
+          <aside class="panel panel--portfolio">
+            <p class="panel__eyebrow">Project portfolio</p>
+            <div class="project-stack">
+              <div class="project-card project-card--active">
+                <strong>PT Aksara Digital</strong>
+                <span>Progress 78%</span>
+                <small>9 risks · 22 controls · 14 docs</small>
+              </div>
+              <div class="project-card">
+                <strong>CV Mitra Servis</strong>
+                <span>Progress 54%</span>
+                <small>6 risks · 17 controls · 9 docs</small>
+              </div>
+              <div class="project-card">
+                <strong>PT Sinar Logistics</strong>
+                <span>Progress 31%</span>
+                <small>4 risks · 11 controls · 6 docs</small>
+              </div>
+            </div>
+          </aside>
+          <section class="panel panel--control-detail">
+            <div class="panel__header-row">
+              <div>
+                <p class="panel__eyebrow">Control detail</p>
+                <h2>A.5.15 Access control</h2>
+              </div>
+              <span class="status-chip status-chip--info">Implementation in progress</span>
+            </div>
+            <div class="control-metadata">
+              <div><span>Applicability</span><strong>Applicable</strong></div>
+              <div><span>Owner</span><strong>ISO PIC · IT Lead</strong></div>
+              <div><span>Target</span><strong>31 Aug 2026</strong></div>
+            </div>
+            <div class="linked-evidence-grid">
+              <div class="mini-card">
+                <p class="mini-card__label">Linked risks</p>
+                <ul>
+                  <li>Unauthorized access to critical data</li>
+                  <li>Weak privilege review process</li>
+                </ul>
+              </div>
+              <div class="mini-card">
+                <p class="mini-card__label">Supporting documents</p>
+                <ul>
+                  <li>Access control policy · v1.3</li>
+                  <li>User provisioning SOP · In review</li>
+                </ul>
+              </div>
+            </div>
+            <div class="activity-strip">
+              <span class="status-chip status-chip--success">1 approved document</span>
+              <span class="status-chip status-chip--warning">1 revision requested</span>
+              <span class="status-chip status-chip--muted">2 evidences linked</span>
+            </div>
+          </section>
+          <aside class="panel panel--connections">
+            <p class="panel__eyebrow">Connected implementation evidence</p>
+            <div class="connection-card">
+              <span class="connection-card__step">Risk</span>
+              <strong>Akses tidak sah ke informasi penting</strong>
+            </div>
+            <div class="connection-line" aria-hidden="true"></div>
+            <div class="connection-card">
+              <span class="connection-card__step">Document</span>
+              <strong>Kebijakan dan prosedur akses</strong>
+            </div>
+            <div class="connection-line" aria-hidden="true"></div>
+            <div class="connection-card">
+              <span class="connection-card__step">Evidence</span>
+              <strong>Review akses Q3 & bukti approval</strong>
+            </div>
+          </aside>
+        </div>
+      </ProductFrame>
+    </div>
+  </Container>
+</MarketingSection>

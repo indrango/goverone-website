@@ -1,0 +1,36 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ProductFrame from '../ui/ProductFrame.astro';
+import { problemSection } from '../../content/landing-page';
+---
+<MarketingSection id="problem" surface="muted" spacing="default">
+  <Container variant="content">
+    <div class="section-split">
+      <div>
+        <SectionHeading title={problemSection.title} body={problemSection.paragraphs[0]} size="lg" />
+        <p class="section-supporting-copy">{problemSection.paragraphs[1]}</p>
+      </div>
+      <ProductFrame title="Informasi implementasi terpisah" caption="Konteks project mudah hilang ketika workflow tersebar">
+        <div class="fragmented-workflow">
+          <div class="fragmented-workflow__chips">
+            {problemSection.diagram.map((item) => (
+              <span class="fragment-chip">{item}</span>
+            ))}
+          </div>
+          <div class="fragmented-workflow__arrow" aria-hidden="true">↓</div>
+          <div class="fragmented-workflow__result">Informasi implementasi terpisah</div>
+        </div>
+      </ProductFrame>
+    </div>
+    <div class="problem-card-grid">
+      {problemSection.cards.map((card) => (
+        <article class="info-card">
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+        </article>
+      ))}
+    </div>
+  </Container>
+</MarketingSection>

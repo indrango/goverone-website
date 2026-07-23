@@ -1,0 +1,27 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ProductFrame from '../ui/ProductFrame.astro';
+import { transitionSection } from '../../content/landing-page';
+---
+<MarketingSection id="transition" spacing="default">
+  <Container variant="content">
+    <div class="section-split section-split--reverse">
+      <ProductFrame title="Implementation relationship map" caption="Risk, control, document, approval, dan evidence tetap terlihat dalam satu jalur">
+        <div class="relationship-flow">
+          {transitionSection.relationship.map((item, index) => (
+            <>
+              <div class="relationship-flow__node">{item}</div>
+              {index < transitionSection.relationship.length - 1 && <div class="relationship-flow__connector" aria-hidden="true">↓</div>}
+            </>
+          ))}
+        </div>
+      </ProductFrame>
+      <div>
+        <SectionHeading title={transitionSection.title} body={transitionSection.body} size="lg" />
+        <p class="section-supporting-copy">{transitionSection.supporting}</p>
+      </div>
+    </div>
+  </Container>
+</MarketingSection>

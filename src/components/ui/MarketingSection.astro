@@ -1,0 +1,19 @@
+---
+interface Props {
+  id?: string;
+  surface?: 'base' | 'muted' | 'brand-subtle' | 'dark';
+  spacing?: 'compact' | 'default' | 'featured';
+  className?: string;
+}
+
+const {
+  id,
+  surface = 'base',
+  spacing = 'default',
+  className = '',
+} = Astro.props;
+const classes = ['marketing-section', `marketing-section--${surface}`, `marketing-section--${spacing}`, className].filter(Boolean).join(' ');
+---
+<section id={id} class={classes}>
+  <slot />
+</section>

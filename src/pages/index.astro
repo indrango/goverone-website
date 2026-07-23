@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ProblemSection from '../components/sections/ProblemSection.astro';
+import TransitionSection from '../components/sections/TransitionSection.astro';
+import HowItWorksSection from '../components/sections/HowItWorksSection.astro';
+import CapabilitiesSection from '../components/sections/CapabilitiesSection.astro';
+import ConsultantsSection from '../components/sections/ConsultantsSection.astro';
+import CompaniesSection from '../components/sections/CompaniesSection.astro';
+import TraceabilitySection from '../components/sections/TraceabilitySection.astro';
+import ComparisonSection from '../components/sections/ComparisonSection.astro';
+import TrustBoundarySection from '../components/sections/TrustBoundarySection.astro';
+import FaqSection from '../components/sections/FaqSection.astro';
+import FinalCtaSection from '../components/sections/FinalCtaSection.astro';
+import { seo } from '../content/landing-page';
+---
+<BaseLayout title={seo.title} description={seo.description} canonicalPath={seo.canonicalPath}>
+  <Navbar />
+  <main>
+    <HeroSection />
+    <ProblemSection />
+    <TransitionSection />
+    <HowItWorksSection />
+    <CapabilitiesSection />
+    <ConsultantsSection />
+    <CompaniesSection />
+    <TraceabilitySection />
+    <ComparisonSection />
+    <TrustBoundarySection />
+    <FaqSection />
+    <FinalCtaSection />
+  </main>
+  <Footer />
+</BaseLayout>

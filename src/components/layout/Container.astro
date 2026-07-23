@@ -1,0 +1,12 @@
+---
+interface Props {
+  variant?: 'max' | 'content' | 'reading' | 'narrow';
+  className?: string;
+}
+
+const { variant = 'content', className = '' } = Astro.props;
+const classes = ['container-shell', `container-shell--${variant}`, className].filter(Boolean).join(' ');
+---
+<div class={classes}>
+  <slot />
+</div>

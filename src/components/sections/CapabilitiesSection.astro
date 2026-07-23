@@ -1,0 +1,48 @@
+---
+import Container from '../layout/Container.astro';
+import MarketingSection from '../ui/MarketingSection.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Badge from '../ui/Badge.astro';
+import { capabilities } from '../../content/landing-page';
+
+const visualRows = [
+  ['Client project', 'Project access'],
+  ['Project context', 'Team setup'],
+  ['Risk assessment', 'Treatment plan'],
+  ['Applicability', 'Implementation status'],
+  ['Draft', 'Review & approval'],
+  ['Template library', 'Project document'],
+  ['Linked control', 'Evidence file'],
+  ['Workspace role', 'Project member'],
+];
+---
+<MarketingSection id="product-capabilities" spacing="default">
+  <Container variant="content">
+    <SectionHeading title={capabilities.title} width="narrow" size="lg" />
+    <div class="capability-grid">
+      {capabilities.items.map((item, index) => (
+        <article class="capability-card">
+          <div class="capability-card__visual" aria-label={`${item.title} product preview`}>
+            <div class="capability-card__visual-header">
+              <span>{item.badge}</span>
+              <span class="capability-card__status">Active</span>
+            </div>
+            <div class="capability-card__preview-row">
+              <span>{visualRows[index][0]}</span>
+              <strong>Configured</strong>
+            </div>
+            <div class="capability-card__preview-row">
+              <span>{visualRows[index][1]}</span>
+              <strong>Connected</strong>
+            </div>
+          </div>
+          <div class="capability-card__content">
+            <Badge variant="muted">{item.badge}</Badge>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</MarketingSection>
