@@ -4,31 +4,30 @@ import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import ProductFrame from '../ui/ProductFrame.astro';
 import { traceability } from '../../content/landing-page';
+
+const labels = ['Risk', 'Control', 'Document', 'Evidence'];
+const items: { label: string; description: string }[] = [];
+for (let i = 0; i < labels.length; i++) {
+  items.push({
+    label: labels[i],
+    description: traceability.example[i * 2 + 1],
+  });
+}
 ---
 <MarketingSection id="traceability" surface="brand-subtle" spacing="featured">
   <Container variant="content">
     <SectionHeading title={traceability.title} body={traceability.body} align="center" width="narrow" size="lg" />
     <ProductFrame title="Connected traceability" caption="Hubungan risk, control, document, dan evidence tetap dapat dibaca saat implementasi bergerak">
       <div class="traceability-graph">
-        <div class="traceability-card">
-          <span>Risk</span>
-          <strong>Akses tidak sah ke informasi penting</strong>
-        </div>
-        <div class="traceability-arrow" aria-hidden="true">↓</div>
-        <div class="traceability-card">
-          <span>Control</span>
-          <strong>Pengendalian akses ditetapkan</strong>
-        </div>
-        <div class="traceability-arrow" aria-hidden="true">↓</div>
-        <div class="traceability-card">
-          <span>Document</span>
-          <strong>Kebijakan dan prosedur akses</strong>
-        </div>
-        <div class="traceability-arrow" aria-hidden="true">↓</div>
-        <div class="traceability-card">
-          <span>Evidence</span>
-          <strong>Review akses dan bukti penerapan</strong>
-        </div>
+        {items.map((item, i) => (
+          <>
+            {i > 0 && <div class="traceability-arrow" aria-hidden="true">↓</div>}
+            <div class="traceability-card">
+              <span class="traceability-card__label">{item.label}</span>
+              <strong class="traceability-card__value">{item.description}</strong>
+            </div>
+          </>
+        ))}
       </div>
     </ProductFrame>
     <p class="section-supporting-copy section-supporting-copy--center">{traceability.supporting}</p>
