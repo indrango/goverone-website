@@ -531,6 +531,7 @@ body[data-scrolled] .site-header .site-nav a:hover {
   transform: translateY(-2px);
   border-color: var(--go-brand-border);
   box-shadow: var(--go-shadow-soft);
+  transition-delay: 0ms;
 }
 .info-card h3,
 .workflow-step h3,
@@ -678,6 +679,9 @@ body[data-scrolled] .site-header .site-nav a:hover {
 }
 
 .reveal-section,
+.reveal-heading,
+.reveal-panel,
+.reveal-item,
 .info-card,
 .workflow-step,
 .capability-card,
@@ -686,8 +690,26 @@ body[data-scrolled] .site-header .site-nav a:hover {
 .faq-item {
   opacity: 0;
   transform: translateY(18px) scale(0.985);
+  transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1), transform 640ms cubic-bezier(0.16, 1, 0.3, 1), border-color var(--go-motion-slow) var(--go-ease-standard), box-shadow var(--go-motion-slow) var(--go-ease-standard);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.reveal-heading {
+  transform: translateY(14px);
+}
+.reveal-panel,
+.info-card,
+.workflow-step,
+.capability-card,
+.benefit-item,
+.traceability-card,
+.faq-item {
+  transform: translateY(20px) scale(0.985);
 }
 .reveal-section.is-visible,
+.reveal-heading.is-visible,
+.reveal-panel.is-visible,
+.reveal-item.is-visible,
 .info-card.is-visible,
 .workflow-step.is-visible,
 .capability-card.is-visible,
@@ -696,7 +718,7 @@ body[data-scrolled] .site-header .site-nav a:hover {
 .faq-item.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
-  transition-delay: var(--reveal-delay, 0ms);
+  will-change: auto;
 }
 
 @media (max-width: 1023px) {
@@ -856,6 +878,9 @@ body[data-scrolled] .site-header .site-nav a:hover {
     transition-duration: 0.01ms !important;
   }
   .reveal-section,
+  .reveal-heading,
+  .reveal-panel,
+  .reveal-item,
   .info-card,
   .workflow-step,
   .capability-card,

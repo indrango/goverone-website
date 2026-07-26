@@ -13,12 +13,12 @@ import { hero } from '../../content/landing-page';
         <h1>{hero.title}</h1>
         <p class="hero-copy__body">{hero.body}</p>
         <p class="hero-copy__supporting">{hero.supportingLine}</p>
-        <div class="hero-actions">
+        <div class="hero-actions reveal-item">
           <Button href={hero.actions[0].href} variant="primary" size="lg">{hero.actions[0].label}</Button>
         </div>
       </div>
 
-      <div class="hero-overview-card" aria-label="Preview workspace GoverOne">
+      <div class="hero-overview-card reveal-panel" aria-label="Preview workspace GoverOne">
         <div class="hero-overview-card__header">
           <div>
             <p class="hero-overview-card__label">Overview proyek aktif</p>

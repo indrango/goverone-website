@@ -12,11 +12,11 @@ const groups = [
   <Container variant="content">
     <div class="site-footer__grid">
       <div class="site-footer__brand-block">
-        <a class="site-brand site-brand--footer" href="#hero">GoverOne</a>
-        <p class="site-footer__closing">{footer.closingLine}</p>
+        <a class="site-brand site-brand--footer reveal-item" href="#hero">GoverOne</a>
+        <p class="site-footer__closing reveal-item">{footer.closingLine}</p>
       </div>
       {groups.map((group) => (
-        <div class="site-footer__group">
+        <div class="site-footer__group reveal-item">
           <h3>{group.title}</h3>
           <ul>
             {group.links.map((link) => (
