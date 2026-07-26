@@ -240,6 +240,7 @@ main { overflow: clip; }
 
 .badge {
   display: inline-flex;
+  width: fit-content;
   min-height: 30px;
   align-items: center;
   padding: 5px 11px;
