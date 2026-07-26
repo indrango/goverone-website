@@ -3,20 +3,20 @@ import Container from './Container.astro';
 import { footer } from '../../content/landing-page';
 
 const groups = [
-  { title: 'Product', links: footer.product },
-  { title: 'Solutions', links: footer.solutions },
-  { title: 'Company', links: footer.company },
+  { title: 'Produk', links: footer.product },
+  { title: 'Solusi', links: footer.solutions },
+  { title: 'Perusahaan', links: footer.company },
 ];
 ---
 <footer class="site-footer" id="footer">
   <Container variant="content">
     <div class="site-footer__grid">
       <div class="site-footer__brand-block">
-        <a class="site-brand" href="#hero">GoverOne</a>
-        <p class="site-footer__closing">{footer.closingLine}</p>
+        <a class="site-brand site-brand--footer reveal-item" href="#hero">GoverOne</a>
+        <p class="site-footer__closing reveal-item">{footer.closingLine}</p>
       </div>
       {groups.map((group) => (
-        <div class="site-footer__group">
+        <div class="site-footer__group reveal-item">
           <h3>{group.title}</h3>
           <ul>
             {group.links.map((link) => (
@@ -25,6 +25,10 @@ const groups = [
           </ul>
         </div>
       ))}
+    </div>
+    <div class="site-footer__bottom reveal-item">
+      <span>© 2026 GoverOne</span>
+      <span>Workspace ISO 27001 untuk kolaborasi konsultan dan klien</span>
     </div>
   </Container>
 </footer>

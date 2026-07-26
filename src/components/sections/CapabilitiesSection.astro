@@ -4,42 +4,25 @@ import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import Badge from '../ui/Badge.astro';
 import { capabilities } from '../../content/landing-page';
-
-const visualRows = [
-  ['Client project', 'Project access'],
-  ['Project context', 'Team setup'],
-  ['Risk assessment', 'Treatment plan'],
-  ['Applicability', 'Implementation status'],
-  ['Draft', 'Review & approval'],
-  ['Template library', 'Project document'],
-  ['Linked control', 'Evidence file'],
-  ['Workspace role', 'Project member'],
-];
 ---
 <MarketingSection id="product-capabilities" spacing="default">
   <Container variant="content">
-    <SectionHeading title={capabilities.title} width="narrow" size="lg" />
-    <div class="capability-grid">
+    <SectionHeading title={capabilities.title} body={capabilities.body} width="narrow" size="lg" />
+    <div class="capability-grid capability-grid--system reveal-section">
       {capabilities.items.map((item, index) => (
-        <article class="capability-card">
-          <div class="capability-card__visual" aria-label={`Preview fitur ${item.title}`}>
-            <div class="capability-card__visual-header">
-              <span>{item.badge}</span>
-              <span class="capability-card__status">Active</span>
-            </div>
-            <div class="capability-card__preview-row">
-              <span>{visualRows[index][0]}</span>
-              <strong>Configured</strong>
-            </div>
-            <div class="capability-card__preview-row">
-              <span>{visualRows[index][1]}</span>
-              <strong>Connected</strong>
+        <article class:list={['capability-card', 'capability-card--system', { 'capability-card--featured': item.featured }]} style={`--reveal-delay: ${70 + index * 70}ms`}>
+          <div class="capability-card__visual" aria-label={`Alur ${item.title}`}>
+            <div class:list={['capability-card__flow', { 'capability-card__flow--chain': item.featured }]}>
+              {item.visual.map((node) => <span>{node}</span>)}
             </div>
           </div>
           <div class="capability-card__content">
             <Badge variant="muted">{item.badge}</Badge>
             <h3>{item.title}</h3>
             <p>{item.body}</p>
+            <ul class="capability-card__details" aria-label={`Cakupan ${item.title}`}>
+              {item.details.map((detail) => <li>{detail}</li>)}
+            </ul>
           </div>
         </article>
       ))}

@@ -24,7 +24,7 @@ import { companies } from '../../content/landing-page';
         </div>
       </ProductFrame>
       <div>
-        <SectionHeading eyebrow={companies.eyebrow} title={companies.title} body={companies.body} size="lg" />
+        <SectionHeading title={companies.title} body={companies.body} size="lg" />
         <div class="benefit-list">
           {companies.benefits.map((benefit) => (
             <article class="benefit-item">
@@ -33,7 +33,7 @@ import { companies } from '../../content/landing-page';
             </article>
           ))}
         </div>
-        <div class="section-actions">
+        <div class="section-actions reveal-item">
           <Button href={companies.cta.href} variant="outline" size="lg">{companies.cta.label}</Button>
         </div>
       </div>

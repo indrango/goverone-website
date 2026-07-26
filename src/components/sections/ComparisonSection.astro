@@ -6,22 +6,22 @@ import { comparison } from '../../content/landing-page';
 ---
 <MarketingSection id="why-goverone" spacing="default">
   <Container variant="content">
-    <SectionHeading title={comparison.title} width="narrow" size="lg" />
-    <div class="comparison-table-wrapper">
+    <SectionHeading title={comparison.title} body={comparison.supporting} width="narrow" size="lg" />
+    <div class="comparison-table-wrapper reveal-panel" aria-label="Perbandingan cara kerja implementasi ISO 27001">
       <table class="comparison-table">
         <thead>
           <tr>
             <th>Cara kerja</th>
-            <th>Yang dapat dikelola</th>
-            <th>Keterbatasan</th>
+            <th>Yang bisa dibantu</th>
+            <th>Yang tetap hilang</th>
           </tr>
         </thead>
         <tbody>
           {comparison.rows.map((row) => (
             <tr class={row.highlight ? 'comparison-table__row--highlight' : ''}>
               <th data-label="Cara kerja">{row.label}</th>
-              <td data-label="Yang dapat dikelola">{row.manageable}</td>
-              <td data-label="Keterbatasan">{row.limitation}</td>
+              <td data-label="Yang bisa dibantu">{row.manageable}</td>
+              <td data-label="Yang tetap hilang">{row.limitation}</td>
             </tr>
           ))}
         </tbody>

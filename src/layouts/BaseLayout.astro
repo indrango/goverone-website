@@ -8,8 +8,9 @@ interface Props {
 }
 
 const { title, description, canonicalPath = '/' } = Astro.props;
-const canonical = new URL(canonicalPath, Astro.site ?? 'https://example.com').toString();
-const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.com').toString();
+const siteUrl = Astro.site ?? 'https://goverone.id';
+const canonical = new URL(canonicalPath, siteUrl).toString();
+const ogImage = new URL('/og/goverone-og.png', siteUrl).toString();
 ---
 <!doctype html>
 <html lang="id">
@@ -32,7 +33,23 @@ const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.co
   <body>
     <slot />
     <script>
-      const revealTargets = Array.from(document.querySelectorAll('.reveal-section, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-card, .faq-item'));
+      const revealSelectors = '.reveal-section, .reveal-heading, .reveal-panel, .reveal-item, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-map, .traceability-card, .faq-item';
+      const revealTargets = Array.from(document.querySelectorAll(revealSelectors));
+
+      const assignSectionDelays = () => {
+        const sections = Array.from(document.querySelectorAll('.marketing-section, .site-footer'));
+        sections.forEach((section) => {
+          const children = Array.from(section.querySelectorAll('.reveal-heading, .reveal-panel, .reveal-item, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-card, .faq-item'));
+          children.forEach((target, index) => {
+            if (target instanceof HTMLElement && !target.style.getPropertyValue('--reveal-delay')) {
+              target.style.setProperty('--reveal-delay', `${Math.min(index * 70, 320)}ms`);
+            }
+          });
+        });
+      };
+
+      assignSectionDelays();
+
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -41,13 +58,9 @@ const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.co
               observer.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.12 });
-        revealTargets.forEach((target, index) => {
-          if (target instanceof HTMLElement) {
-            target.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
-            observer.observe(target);
-          }
-        });
+        }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+        revealTargets.forEach((target) => observer.observe(target));
       } else {
         revealTargets.forEach((target) => target.classList.add('is-visible'));
       }

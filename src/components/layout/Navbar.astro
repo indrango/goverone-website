@@ -17,9 +17,21 @@ import { navigation } from '../../content/landing-page';
       <div class="site-header__actions site-header__actions--desktop">
         <Button href={navigation.primaryCta.href} variant="primary" size="md">{navigation.primaryCta.label}</Button>
       </div>
-      <button class="site-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
-        <span>Menu</span>
-      </button>
+      <div class="site-header__actions site-header__actions--mobile">
+        <Button href={navigation.primaryCta.href} variant="primary" size="sm">{navigation.primaryCta.label}</Button>
+        <button
+          class="site-menu-button"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Buka menu navigasi"
+          data-menu-toggle
+        >
+          <span class="site-menu-button__line"></span>
+          <span class="site-menu-button__line"></span>
+          <span class="site-menu-button__line"></span>
+        </button>
+      </div>
     </div>
   </Container>
   <div class="mobile-menu" id="mobile-menu" hidden data-mobile-menu>
@@ -30,7 +42,6 @@ import { navigation } from '../../content/landing-page';
             <li><a href={item.href} data-mobile-link>{item.label}</a></li>
           ))}
         </ul>
-        <Button href={navigation.primaryCta.href} variant="primary" size="lg">{navigation.primaryCta.label}</Button>
       </nav>
     </Container>
   </div>
@@ -45,6 +56,7 @@ import { navigation } from '../../content/landing-page';
     const closeMenu = () => {
       menu.hidden = true;
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Buka menu navigasi');
       document.body.removeAttribute('data-menu-open');
     };
 
@@ -55,6 +67,7 @@ import { navigation } from '../../content/landing-page';
       } else {
         menu.hidden = false;
         toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Tutup menu navigasi');
         document.body.setAttribute('data-menu-open', 'true');
       }
     });
@@ -63,5 +76,29 @@ import { navigation } from '../../content/landing-page';
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) closeMenu();
     });
+  }
+
+  const header = document.getElementById('top');
+  const heroSection = document.getElementById('hero');
+  if (header && heroSection && 'IntersectionObserver' in window) {
+    let observer;
+
+    const observeHero = () => {
+      observer?.disconnect();
+      const headerHeight = header.getBoundingClientRect().height;
+      observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          document.body.removeAttribute('data-scrolled');
+        } else {
+          document.body.setAttribute('data-scrolled', '');
+        }
+      }, { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 });
+      observer.observe(heroSection);
+    };
+
+    observeHero();
+    window.addEventListener('resize', observeHero);
+  } else {
+    document.body.setAttribute('data-scrolled', '');
   }
 </script>

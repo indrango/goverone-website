@@ -9,18 +9,17 @@ import type {
 } from '../types/content';
 
 export const seo = {
-  title: 'GoverOne — Workspace Implementasi ISO 27001 untuk Konsultan dan Perusahaan',
+  title: 'GoverOne - Workspace Implementasi ISO 27001 untuk Konsultan dan Perusahaan',
   description:
-    'Kelola risk register, Statement of Applicability, dokumen, approval, dan evidence ISO 27001 bersama client dalam satu workspace yang terstruktur.',
+    'Kelola risk register, Statement of Applicability, dokumen, approval, dan evidence ISO 27001 bersama klien dalam satu workspace yang terstruktur.',
   canonicalPath: '/',
 };
 
 export const navigation = {
   brand: 'GoverOne',
   items: [
-    { label: 'Product', href: '#product-capabilities' },
-    { label: 'Untuk Konsultan', href: '#consultants' },
-    { label: 'Untuk Perusahaan', href: '#companies' },
+    { label: 'Produk', href: '#product-capabilities' },
+    { label: 'Solusi', href: '#consultants' },
     { label: 'Cara Kerja', href: '#how-it-works' },
     { label: 'FAQ', href: '#faq' },
   ] satisfies NavItem[],
@@ -28,208 +27,190 @@ export const navigation = {
 };
 
 export const hero = {
-  eyebrow: 'Workspace Implementasi ISO 27001 untuk Konsultan & Klien',
-  title: 'Satu workspace untuk menjalankan setiap proyek ISO 27001.',
+  title: 'Jalankan implementasi ISO 27001 dalam satu workspace bersama',
   body:
-    'Kelola project setup, risk register, Statement of Applicability, dokumen, approval, dan evidence bersama client—tanpa memisahkan proses implementasi ke banyak spreadsheet, folder, dan percakapan.',
+    'Satukan risk, control, dokumen, approval, dan evidence agar konsultan dan klien bekerja dari konteks project yang sama.',
   actions: [
     { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'primary' },
     { label: 'Lihat Cara Kerja', href: '#how-it-works', variant: 'secondary' },
   ] satisfies Action[],
-  supportingLine:
-    'Dibangun khusus untuk proses implementasi ISO/IEC 27001 oleh konsultan dan tim perusahaan.',
 };
 
 export const problemSection = {
-  title: 'Masalahnya bukan kekurangan template. Masalahnya, seluruh implementasi berjalan terpisah.',
+  title: 'Risk, dokumen, approval, dan evidence hidup di tempat berbeda',
   paragraphs: [
-    'Risk register disimpan di spreadsheet. Statement of Applicability berada di file lain. Dokumen berpindah melalui email. Evidence masuk ke folder tanpa konteks yang jelas.',
-    'Ketika semua bagian berdiri sendiri, konsultan harus terus menyusun ulang status project dan client kesulitan memahami hubungan antara risk, control, dokumen, dan bukti implementasi.',
+    'Saat project tersebar di spreadsheet, folder, email, dan chat, status implementasi harus dirangkai ulang setiap kali tim ingin mengambil keputusan.',
+    'Akibatnya: progress terlihat sibuk, tapi konteks sulit dipercaya.',
   ],
   cards: [
     {
-      title: 'Konteks project mudah hilang',
-      body: 'Keputusan, revisi, dan hasil diskusi tersebar di meeting notes, chat, email, dan file pribadi.',
+      title: 'Konteks hilang',
+      body: 'Keputusan dan revisi tersebar di banyak tempat.',
     },
     {
-      title: 'Versi dan approval sulit ditelusuri',
-      body: 'Tim tidak selalu tahu dokumen mana yang masih draft, sedang direview, sudah disetujui, atau perlu direvisi.',
+      title: 'Approval kabur',
+      body: 'Draft, review, approved, dan revisi sulit dibedakan.',
     },
     {
-      title: 'Evidence tidak terhubung ke control',
-      body: 'File mungkin sudah tersedia, tetapi alasan file tersebut relevan dan control yang didukungnya tidak terlihat jelas.',
+      title: 'Evidence lepas konteks',
+      body: 'File tersedia, tapi tidak jelas mendukung control apa.',
     },
     {
-      title: 'Setiap client dimulai dari awal',
-      body: 'Struktur file dan cara kerja berbeda-beda, sehingga kualitas delivery terlalu bergantung pada kebiasaan masing-masing konsultan.',
+      title: 'Delivery tidak konsisten',
+      body: 'Tiap klien mengikuti struktur kerja yang berbeda.',
     },
   ] satisfies TextItem[],
-  diagram: ['Spreadsheet', 'Drive', 'Email', 'Chat'],
+  diagram: ['Risk', 'Control', 'Document', 'Approval', 'Evidence'],
 };
 
 export const transitionSection = {
-  title: 'Ubah kumpulan file menjadi catatan implementasi yang saling terhubung.',
+  title: 'Ubah file terpisah menjadi satu catatan implementasi',
   body:
-    'GoverOne memberikan satu struktur kerja untuk setiap client project. Risk, control, document, approval, dan evidence dikelola dalam konteks yang sama sehingga tim dapat memahami bukan hanya apa yang tersedia, tetapi juga mengapa hal tersebut dibutuhkan dan bagaimana statusnya.',
-  relationship: ['Project', 'Risk', 'Control & Statement of Applicability', 'Document', 'Approval & Version', 'Evidence'],
+    'GoverOne menyatukan risk, control, dokumen, approval, dan evidence dalam satu workspace klien, sehingga setiap artefak punya status, relasi, dan konteks yang jelas.',
+  relationship: ['Risk', 'Control', 'Document', 'Approval', 'Evidence'],
   supporting:
-    'Setiap bagian tetap dapat dikelola secara mandiri, tetapi tidak lagi kehilangan hubungan dengan bagian implementasi lainnya.',
+    'Tim tidak hanya melihat file yang tersedia. Tim memahami alasan file itu dibutuhkan dan progress implementasinya.',
 };
 
 export const howItWorks = {
-  title: 'Satu alur kerja dari project setup hingga bukti implementasi.',
+  title: 'Bangun catatan implementasi lewat satu alur kerja',
+  body:
+    'Ikuti alur dari setup project sampai evidence agar risk, control, dokumen, dan bukti implementasi tetap berada dalam konteks yang sama.',
   steps: [
     {
-      title: 'Siapkan client project',
-      body: 'Buat project, masukkan konteks awal, dan tambahkan konsultan serta anggota tim client ke workspace yang sesuai.',
+      title: 'Setup project',
+      body: 'Buat workspace klien dan simpan konteks awal implementasi.',
     },
     {
-      title: 'Kelola asset dan risk',
-      body: 'Catat asset, identifikasi risk, nilai tingkat risikonya, dan dokumentasikan keputusan acceptance atau treatment.',
+      title: 'Petakan risk',
+      body: 'Catat asset, risk, impact, dan treatment decision.',
     },
     {
-      title: 'Tentukan control dan SoA',
-      body: 'Kelola applicability serta implementation status Annex A control dan hubungkan control dengan risk yang relevan.',
+      title: 'Hubungkan control',
+      body: 'Tentukan applicability Annex A dan relasikan ke risk terkait.',
     },
     {
-      title: 'Susun dan review dokumen',
-      body: 'Gunakan template, buat dokumen dalam project, ajukan approval, tangani revisi, dan pertahankan version history.',
+      title: 'Review dokumen',
+      body: 'Susun policy, ajukan approval, dan simpan version history.',
     },
     {
-      title: 'Hubungkan evidence',
-      body: 'Upload evidence dan kaitkan dengan control agar bukti implementasi tersimpan bersama konteks yang mendukungnya.',
+      title: 'Lampirkan evidence',
+      body: 'Kaitkan bukti implementasi langsung ke control yang didukung.',
     },
   ] satisfies Step[],
-  cta: { label: 'Lihat Demo Alur Project', href: '#final-cta', variant: 'outline' } satisfies Action,
+  cta: { label: 'Lihat Alur Kerja', href: '#final-cta', variant: 'outline' } satisfies Action,
 };
 
 export const capabilities = {
-  title: 'Fondasi yang dibutuhkan untuk mengelola implementasi ISO 27001.',
+  title: 'Satu workspace untuk menjalankan ISO 27001',
+  body:
+    'Kelola project, risk, control, dokumen, dan evidence dalam alur kerja yang terhubung sejak onboarding sampai audit readiness.',
   items: [
     {
-      title: 'Client project workspace',
-      body: 'Kelola beberapa project client dari satu workspace dan pisahkan member serta akses berdasarkan project.',
-      badge: 'Portfolio',
+      title: 'Project foundation',
+      body: 'Pisahkan project klien, atur member, dan bangun konteks implementasi sejak awal.',
+      badge: 'Foundation',
+      signal: 'Konteks project siap',
+      details: ['Workspace klien', 'Project onboarding', 'Role-based access'],
+      visual: ['Project klien', 'Team context', 'Access scope'],
     },
     {
-      title: 'Project onboarding',
-      body: 'Bangun struktur awal project dan simpan informasi penting sebagai fondasi implementasi.',
-      badge: 'Onboarding',
+      title: 'Risk & control',
+      body: 'Hubungkan asset, risk assessment, treatment plan, dan Annex A control dalam satu alur keputusan.',
+      badge: 'Traceability',
+      signal: 'Risk masuk ke SoA',
+      details: ['Asset register', 'Risk scoring', 'Treatment plan', 'Control mapping'],
+      visual: ['Asset', 'Risk', 'Treatment', 'Control'],
+      featured: true,
     },
     {
-      title: 'Asset & risk register',
-      body: 'Kelola asset, risk assessment, risk scoring, acceptance, dan treatment dalam konteks satu project.',
-      badge: 'Risk',
+      title: 'Document system',
+      body: 'Buat dokumen dari template, jalankan review, approval, revision, dan version history tanpa berpindah tempat.',
+      badge: 'Review flow',
+      signal: 'Dokumen punya riwayat',
+      details: ['Templates', 'Review', 'Approval', 'Version history'],
+      visual: ['Draft', 'Review', 'Approved', 'Archived'],
     },
     {
-      title: 'Control mapping & SoA',
-      body: 'Tentukan applicability, implementation status, linked risk, dan progress Annex A control.',
-      badge: 'Controls',
-    },
-    {
-      title: 'Document lifecycle',
-      body: 'Buat, simpan, review, approve, reject, revise, dan archive dokumen dengan riwayat versi yang jelas.',
-      badge: 'Documents',
-    },
-    {
-      title: 'Document templates',
-      body: 'Kelola reusable templates untuk membantu tim memulai dokumen dengan struktur yang lebih konsisten.',
-      badge: 'Templates',
-    },
-    {
-      title: 'Evidence management',
-      body: 'Upload, simpan, download, dan hubungkan evidence dengan control yang didukung.',
-      badge: 'Evidence',
-    },
-    {
-      title: 'Role-based collaboration',
-      body: 'Atur workspace dan project member agar konsultan dan client dapat bekerja dalam akses yang sesuai.',
-      badge: 'Access',
+      title: 'Evidence readiness',
+      body: 'Simpan evidence dan hubungkan langsung ke control yang didukung agar audit trail lebih mudah ditelusuri.',
+      badge: 'Audit trail',
+      signal: 'Evidence siap ditelusuri',
+      details: ['Evidence file', 'Linked control', 'Download access'],
+      visual: ['Control A.5.15', 'Evidence attached', 'Traceable record'],
     },
   ] satisfies Capability[],
 };
 
 export const consultants = {
-  eyebrow: 'Untuk Konsultan ISO 27001',
-  title: 'Berikan cara kerja yang konsisten kepada setiap client.',
+  title: 'Dua pihak bekerja dari struktur project yang sama',
   body:
-    'GoverOne membantu tim konsultasi membawa struktur delivery yang sama ke setiap project tanpa menghilangkan kebutuhan untuk menyesuaikan implementasi dengan konteks client.',
+    'Konsultan dapat menjaga pola delivery. Tim perusahaan dapat mengikuti progress, review dokumen, dan memahami evidence dalam konteks yang sama.',
+  audienceLabel: 'Untuk Konsultan',
+  audienceTitle: 'Delivery lebih konsisten di setiap klien',
+  audienceBody:
+    'Bawa metode kerja yang sama ke banyak project klien, tetap fleksibel mengikuti konteks organisasi.',
   benefits: [
     {
-      title: 'Lihat seluruh client project dalam satu tempat',
-      body: 'Gunakan project portfolio untuk membuka dan mengelola setiap engagement tanpa bergantung pada struktur folder pribadi.',
+      title: 'Kelola banyak project klien',
+      body: 'Buka setiap engagement dari portfolio project tanpa bergantung pada struktur folder pribadi.',
     },
     {
-      title: 'Bangun struktur implementasi yang konsisten',
-      body: 'Kelola risk, control, dokumen, dan evidence melalui pola yang sama pada setiap project.',
+      title: 'Gunakan struktur delivery yang sama',
+      body: 'Risk, control, dokumen, dan evidence mengikuti pola kerja yang konsisten di setiap project.',
     },
     {
-      title: 'Gunakan kembali document templates',
-      body: 'Kurangi kebutuhan memulai dokumen dari halaman kosong sambil tetap menyesuaikannya dengan organisasi client.',
-    },
-    {
-      title: 'Review bersama client di dalam project',
-      body: 'Minta approval, tangani rejection atau revision, dan pertahankan riwayat dokumen dalam workspace yang sama.',
-    },
-    {
-      title: 'Kurangi ketergantungan pada ingatan konsultan',
-      body: 'Simpan hubungan antara keputusan risiko, control yang diterapkan, dokumen pendukung, dan evidence di dalam sistem.',
+      title: 'Review bersama klien',
+      body: 'Minta approval, tangani revision, dan pertahankan riwayat dokumen dalam workspace yang sama.',
     },
   ] satisfies Benefit[],
-  cta: { label: 'Jadwalkan Demo untuk Tim Konsultan', href: '#final-cta', variant: 'primary' } satisfies Action,
-  supporting: 'GoverOne memperkuat metode dan judgment konsultan—bukan menggantikannya.',
+  workflowTitle: 'Satu alur kerja yang dipahami bersama',
+  workflowBody:
+    'GoverOne menghubungkan pekerjaan konsultan dengan keputusan, dokumen, dan evidence yang perlu dipahami tim perusahaan.',
+  workflow: ['Project', 'Risk & control', 'Document review', 'Evidence', 'History'],
+  cta: { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'primary' } satisfies Action,
 };
 
 export const companies = {
-  eyebrow: 'Untuk ISO PIC dan Tim Perusahaan',
-  title: 'Pahami apa yang sedang dibangun bersama konsultan Anda.',
-  body:
-    'GoverOne memberikan satu workspace bersama agar tim perusahaan dapat mengikuti implementasi, mengakses dokumen yang relevan, menyelesaikan review, dan mengumpulkan evidence tanpa kehilangan konteks project.',
+  audienceLabel: 'Untuk Perusahaan',
+  audienceTitle: 'Implementasi lebih mudah diikuti',
+  audienceBody:
+    'ISO PIC, approver, dan management dapat melihat konteks project yang sama tanpa menunggu rekap manual dari banyak channel.',
   benefits: [
     {
-      title: 'Satu tempat untuk catatan implementasi',
-      body: 'Risk, control, dokumen, dan evidence tidak lagi tersebar di banyak channel.',
+      title: 'Ikuti progress implementasi',
+      body: 'Lihat dokumen, status review, dan catatan project dalam workspace yang sama.',
     },
     {
-      title: 'Kolaborasi sesuai peran',
-      body: 'Libatkan ISO PIC, management, approver, dan anggota project melalui workspace dan project access.',
+      title: 'Review dan approve dokumen',
+      body: 'Berikan keputusan approval, revision, atau rejection dengan riwayat yang dapat ditelusuri.',
     },
     {
-      title: 'Approval dokumen yang dapat ditelusuri',
-      body: 'Lihat status dokumen, berikan keputusan approval, dan akses revision history.',
-    },
-    {
-      title: 'Evidence memiliki konteks',
-      body: 'Simpan evidence bersama control yang didukung agar lebih mudah dipahami saat dibutuhkan.',
-    },
-    {
-      title: 'Pengetahuan tidak berhenti di percakapan',
-      body: 'Catatan project tetap tersusun dalam workspace dan tidak hanya tersimpan di akun pribadi atau chat.',
+      title: 'Pahami konteks evidence',
+      body: 'Evidence tersimpan bersama control yang didukung agar lebih mudah dipahami saat dibutuhkan.',
     },
   ] satisfies Benefit[],
-  cta: { label: 'Lihat Cara Tim Perusahaan Menggunakan GoverOne', href: '#final-cta', variant: 'outline' } satisfies Action,
+  cta: { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'outline' } satisfies Action,
 };
 
 export const traceability = {
-  title: 'Jangan hanya menyimpan dokumen. Hubungkan alasan, keputusan, dan buktinya.',
+  title: 'Setiap evidence punya konteks',
   body:
-    'Sebuah dokumen atau evidence memiliki nilai lebih besar ketika tim dapat melihat risk yang melatarbelakanginya, control yang diterapkan, dan status implementasinya.',
-  example: [
-    'Risk',
-    'Akses tidak sah ke informasi penting',
-    'Control',
-    'Pengendalian akses ditetapkan',
-    'Document',
-    'Kebijakan dan prosedur akses',
-    'Evidence',
-    'Review akses dan bukti penerapan',
-  ],
-  supporting:
-    'GoverOne membantu tim membangun traceability yang lebih mudah dipahami selama implementasi dan ketika informasi perlu diperiksa kembali.',
+    'Hubungkan risk, control, dokumen, owner, dan status implementasi dalam satu alur yang mudah diperiksa kembali.',
+  frameTitle: 'Traceability map',
+  frameCaption:
+    'Satu control dapat ditelusuri ke alasan, dokumen pendukung, dan bukti penerapannya.',
+  map: {
+    control: 'Pengendalian akses ditetapkan',
+    risk: 'Akses tidak sah ke informasi penting',
+    document: 'Kebijakan dan prosedur akses',
+    evidence: 'Review akses dan bukti penerapan',
+    owner: 'PIC, progress, dan keputusan review',
+  },
 };
 
 export const comparison = {
-  title: 'Dibangun untuk pekerjaan implementasi, bukan sekadar penyimpanan file.',
+  title: 'Dibangun untuk implementasi ISO 27001, bukan sekadar menyimpan file',
   rows: [
     {
       label: 'Spreadsheet',
@@ -249,16 +230,16 @@ export const comparison = {
     {
       label: 'GoverOne',
       manageable: 'Project, risk, control/SoA, document lifecycle, dan evidence',
-      limitation: 'Dibangun khusus untuk implementasi ISO 27001',
+      limitation: 'Struktur implementasi ISO 27001 terjaga dari risk sampai evidence',
       highlight: true,
     },
   ] satisfies ComparisonRow[],
   supporting:
-    'GoverOne tidak mencoba menjadi semua jenis GRC tool. Produk ini berfokus pada pekerjaan yang dilakukan konsultan dan client ketika membangun implementasi ISO 27001 bersama.',
+    'GoverOne tidak mencoba menjadi semua jenis GRC tool. Fokusnya adalah pekerjaan harian konsultan dan klien saat membangun implementasi ISO 27001 bersama.',
 };
 
 export const trustBoundary = {
-  title: 'Peran profesional tetap berada pada orang yang bertanggung jawab.',
+  title: 'Peran profesional tetap berada pada orang yang bertanggung jawab',
   body:
     'GoverOne membantu menyusun pekerjaan dan catatan implementasi. GoverOne tidak:',
   items: [
@@ -274,39 +255,36 @@ export const trustBoundary = {
 };
 
 export const finalCta = {
-  title: 'Mulai satu proyek ISO 27001 dengan struktur yang lebih baik.',
+  title: 'Satukan pekerjaan ISO 27001 tanpa kehilangan konteks',
   body:
-    'Tunjukkan bagaimana tim Anda mengelola client project hari ini. Kami akan memperlihatkan bagaimana GoverOne dapat menyatukan risk, control, dokumen, approval, dan evidence dalam satu workspace bersama.',
-  actions: [
-    { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'primary' },
-    { label: 'Diskusikan Pilot Project', href: '#footer', variant: 'secondary' },
-  ] satisfies Action[],
+    'Tunjukkan workflow Anda hari ini. Kami akan bantu petakan risk, control, dokumen, approval, dan evidence ke dalam satu workspace bersama.',
+  submitLabel: 'Jadwalkan Demo',
   microcopy:
-    'Demo dapat disesuaikan untuk konsultan individual, consulting firm, atau perusahaan yang sedang bekerja bersama konsultan.',
+    'Demo disesuaikan untuk konsultan individual, consulting firm, atau perusahaan yang sedang bekerja bersama konsultan.',
   leadFormFields: [
     'Nama',
     'Email kerja',
     'Tipe organisasi: Konsultan / Perusahaan',
-    'Jumlah active project atau entity',
+    'Jumlah proyek atau entitas aktif',
     'Apakah sedang menjalankan ISO 27001?',
     'Catatan kebutuhan',
-    'Preferred demo schedule',
+    'Jadwal demo yang diinginkan',
   ],
 };
 
 export const footer = {
   product: [
     { label: 'Overview', href: '#hero' },
-    { label: 'Features', href: '#product-capabilities' },
+    { label: 'Fitur', href: '#product-capabilities' },
     { label: 'Cara Kerja', href: '#how-it-works' },
   ],
   solutions: [
     { label: 'Untuk Konsultan', href: '#consultants' },
-    { label: 'Untuk Perusahaan', href: '#companies' },
+    { label: 'Untuk Perusahaan', href: '#consultants' },
   ],
   company: [
-    { label: 'Contact', href: '#final-cta' },
+    { label: 'Kontak', href: '#final-cta' },
     { label: 'FAQ', href: '#faq' },
   ],
-  closingLine: 'GoverOne — ISO 27001 implementation workspace for consultants and clients.',
+  closingLine: 'Workspace implementasi ISO 27001 untuk konsultan dan klien, dari risk sampai evidence.',
 };

@@ -19,7 +19,7 @@ const {
   width = 'standard',
 } = Astro.props;
 ---
-<div class={`section-heading section-heading--${align} section-heading--${width}`}>
+<div class={`section-heading section-heading--${align} section-heading--${width} reveal-heading`}>
   {eyebrow && <Badge variant="brand">{eyebrow}</Badge>}
   <h2 class={`section-heading__title section-heading__title--${size}`}>{title}</h2>
   {body && <p class="section-heading__body">{body}</p>}

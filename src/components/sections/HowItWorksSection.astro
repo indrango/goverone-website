@@ -2,23 +2,50 @@
 import Container from '../layout/Container.astro';
 import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
-import Button from '../ui/Button.astro';
 import { howItWorks } from '../../content/landing-page';
 ---
-<MarketingSection id="how-it-works" surface="brand-subtle" spacing="default">
-  <Container variant="content">
-    <SectionHeading title={howItWorks.title} align="center" width="narrow" size="lg" />
-    <div class="workflow-grid">
-      {howItWorks.steps.map((step, index) => (
-        <article class="workflow-step">
-          <div class="workflow-step__index">0{index + 1}</div>
-          <h3>{step.title}</h3>
-          <p>{step.body}</p>
-        </article>
-      ))}
+<MarketingSection id="how-it-works" surface="brand-subtle" spacing="default" className="marketing-section--runway-sequence">
+  <div class="runway-sequence" data-runway-sequence>
+    <Container variant="content">
+      <div class="runway-sequence__sticky">
+        <SectionHeading title={howItWorks.title} body={howItWorks.body} align="center" width="narrow" size="lg" />
+        <div class="implementation-runway reveal-section" aria-label="Alur kerja implementasi GoverOne">
+          {howItWorks.steps.map((step, index) => (
+            <article class={`implementation-runway__step ${index === 0 ? 'implementation-runway__step--visible implementation-runway__step--active' : ''}`} data-runway-step={index}>
+              <div class="implementation-runway__marker">0{index + 1}</div>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </Container>
+    <div class="runway-sequence__markers" aria-hidden="true">
+      {howItWorks.steps.map((_, index) => <span data-runway-marker={index}></span>)}
     </div>
-    <div class="section-actions section-actions--center">
-      <Button href={howItWorks.cta.href} variant="outline" size="lg">{howItWorks.cta.label}</Button>
-    </div>
-  </Container>
+  </div>
 </MarketingSection>
+
+<script>
+  const setupRunwaySequence = () => {
+    const section = document.querySelector('[data-runway-sequence]');
+    if (!(section instanceof HTMLElement) || section.dataset.runwayReady === 'true') return;
+    section.dataset.runwayReady = 'true';
+
+    const steps = Array.from(section.querySelectorAll('[data-runway-step]'));
+    if (!steps.length) return;
+
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    steps.forEach((step, index) => {
+      step.classList.add('implementation-runway__step--visible');
+      step.classList.toggle('implementation-runway__step--active', isDesktop && !reduceMotion && index === 0);
+    });
+  };
+
+  setupRunwaySequence();
+  document.addEventListener('astro:page-load', setupRunwaySequence);
+</script>
