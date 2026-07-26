@@ -4,32 +4,39 @@ import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import ProductFrame from '../ui/ProductFrame.astro';
 import { traceability } from '../../content/landing-page';
-
-const labels = ['Risk', 'Control', 'Document', 'Evidence'];
-const items: { label: string; description: string }[] = [];
-for (let i = 0; i < labels.length; i++) {
-  items.push({
-    label: labels[i],
-    description: traceability.example[i * 2 + 1],
-  });
-}
 ---
 <MarketingSection id="traceability" surface="brand-subtle" spacing="featured">
   <Container variant="content">
     <SectionHeading title={traceability.title} body={traceability.body} align="center" width="narrow" size="lg" />
-    <ProductFrame className="traceability-frame" title="Connected traceability" caption="Hubungan risk, control, document, dan evidence tetap dapat dibaca saat implementasi bergerak">
-      <div class="traceability-graph">
-        {items.map((item, i) => (
-          <>
-            {i > 0 && <div class="traceability-arrow" aria-hidden="true">↓</div>}
-            <div class="traceability-card">
-              <span class="traceability-card__label">{item.label}</span>
-              <strong class="traceability-card__value">{item.description}</strong>
-            </div>
-          </>
-        ))}
+    <ProductFrame className="traceability-frame" title={traceability.frameTitle} caption={traceability.frameCaption}>
+      <div class="traceability-map" aria-label="Peta hubungan risk, control, dokumen, dan evidence">
+        <div class="traceability-card traceability-card--risk" style="--reveal-delay: 0ms">
+          <span class="traceability-card__label">Risk</span>
+          <strong class="traceability-card__value">{traceability.map.risk}</strong>
+        </div>
+        <div class="traceability-card traceability-card--document" style="--reveal-delay: 70ms">
+          <span class="traceability-card__label">Document</span>
+          <strong class="traceability-card__value">{traceability.map.document}</strong>
+        </div>
+        <div class="traceability-card traceability-card--center" style="--reveal-delay: 140ms">
+          <span class="traceability-card__label">Control</span>
+          <strong class="traceability-card__value">{traceability.map.control}</strong>
+        </div>
+        <div class="traceability-card traceability-card--owner" style="--reveal-delay: 520ms">
+          <span class="traceability-card__label">Owner & status</span>
+          <strong class="traceability-card__value">{traceability.map.owner}</strong>
+        </div>
+        <div class="traceability-card traceability-card--evidence" style="--reveal-delay: 590ms">
+          <span class="traceability-card__label">Evidence</span>
+          <strong class="traceability-card__value">{traceability.map.evidence}</strong>
+        </div>
+        <svg class="traceability-map__edges" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+          <path class="traceability-map__edge traceability-map__edge--risk" pathLength="1" d="M 272 112 C 390 112, 390 260, 486 260" />
+          <path class="traceability-map__edge traceability-map__edge--document" pathLength="1" d="M 728 112 C 610 112, 610 260, 514 260" />
+          <path class="traceability-map__edge traceability-map__edge--owner" pathLength="1" d="M 272 408 C 390 408, 390 260, 486 260" />
+          <path class="traceability-map__edge traceability-map__edge--evidence" pathLength="1" d="M 728 408 C 610 408, 610 260, 514 260" />
+        </svg>
       </div>
     </ProductFrame>
-    <p class="section-supporting-copy section-supporting-copy--center traceability-supporting-copy reveal-item">{traceability.supporting}</p>
   </Container>
 </MarketingSection>

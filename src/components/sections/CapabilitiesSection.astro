@@ -12,7 +12,6 @@ import { capabilities } from '../../content/landing-page';
       {capabilities.items.map((item, index) => (
         <article class:list={['capability-card', 'capability-card--system', { 'capability-card--featured': item.featured }]} style={`--reveal-delay: ${70 + index * 70}ms`}>
           <div class="capability-card__visual" aria-label={`Alur ${item.title}`}>
-            <div class="capability-card__visual-mark" aria-hidden="true">{index + 1}</div>
             <div class:list={['capability-card__flow', { 'capability-card__flow--chain': item.featured }]}>
               {item.visual.map((node) => <span>{node}</span>)}
             </div>

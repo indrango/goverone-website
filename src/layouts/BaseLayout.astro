@@ -8,8 +8,9 @@ interface Props {
 }
 
 const { title, description, canonicalPath = '/' } = Astro.props;
-const canonical = new URL(canonicalPath, Astro.site ?? 'https://example.com').toString();
-const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.com').toString();
+const siteUrl = Astro.site ?? 'https://goverone.id';
+const canonical = new URL(canonicalPath, siteUrl).toString();
+const ogImage = new URL('/og/goverone-og.png', siteUrl).toString();
 ---
 <!doctype html>
 <html lang="id">
@@ -32,7 +33,7 @@ const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.co
   <body>
     <slot />
     <script>
-      const revealSelectors = '.reveal-section, .reveal-heading, .reveal-panel, .reveal-item, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-card, .faq-item';
+      const revealSelectors = '.reveal-section, .reveal-heading, .reveal-panel, .reveal-item, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-map, .traceability-card, .faq-item';
       const revealTargets = Array.from(document.querySelectorAll(revealSelectors));
 
       const assignSectionDelays = () => {
@@ -40,7 +41,7 @@ const ogImage = new URL('/og/goverone-og.png', Astro.site ?? 'https://example.co
         sections.forEach((section) => {
           const children = Array.from(section.querySelectorAll('.reveal-heading, .reveal-panel, .reveal-item, .info-card, .workflow-step, .capability-card, .benefit-item, .traceability-card, .faq-item'));
           children.forEach((target, index) => {
-            if (target instanceof HTMLElement) {
+            if (target instanceof HTMLElement && !target.style.getPropertyValue('--reveal-delay')) {
               target.style.setProperty('--reveal-delay', `${Math.min(index * 70, 320)}ms`);
             }
           });
