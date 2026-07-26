@@ -28,8 +28,7 @@ export const navigation = {
 };
 
 export const hero = {
-  eyebrow: 'Workspace Implementasi ISO 27001 untuk Konsultan & Klien',
-  title: 'Satu workspace untuk menjalankan setiap proyek ISO 27001.',
+  title: 'Satu workspace untuk menjalankan setiap proyek ISO 27001',
   body:
     'Kelola project setup, risk register, Statement of Applicability, dokumen, approval, dan evidence bersama client—tanpa memisahkan proses implementasi ke banyak spreadsheet, folder, dan percakapan.',
   actions: [
@@ -41,7 +40,7 @@ export const hero = {
 };
 
 export const problemSection = {
-  title: 'Masalahnya bukan kekurangan template. Masalahnya, seluruh implementasi berjalan terpisah.',
+  title: 'Masalahnya bukan kekurangan template. Masalahnya, seluruh implementasi berjalan terpisah',
   paragraphs: [
     'Risk register disimpan di spreadsheet. Statement of Applicability berada di file lain. Dokumen berpindah melalui email. Evidence masuk ke folder tanpa konteks yang jelas.',
     'Ketika semua bagian berdiri sendiri, konsultan harus terus menyusun ulang status project dan client kesulitan memahami hubungan antara risk, control, dokumen, dan bukti implementasi.',
@@ -68,7 +67,7 @@ export const problemSection = {
 };
 
 export const transitionSection = {
-  title: 'Ubah kumpulan file menjadi catatan implementasi yang saling terhubung.',
+  title: 'Ubah kumpulan file menjadi catatan implementasi yang saling terhubung',
   body:
     'GoverOne memberikan satu struktur kerja untuk setiap client project. Risk, control, document, approval, dan evidence dikelola dalam konteks yang sama sehingga tim dapat memahami bukan hanya apa yang tersedia, tetapi juga mengapa hal tersebut dibutuhkan dan bagaimana statusnya.',
   relationship: ['Project', 'Risk', 'Control & Statement of Applicability', 'Document', 'Approval & Version', 'Evidence'],
@@ -77,7 +76,7 @@ export const transitionSection = {
 };
 
 export const howItWorks = {
-  title: 'Satu alur kerja dari project setup hingga bukti implementasi.',
+  title: 'Satu alur kerja dari project setup hingga bukti implementasi',
   steps: [
     {
       title: 'Siapkan client project',
@@ -104,7 +103,7 @@ export const howItWorks = {
 };
 
 export const capabilities = {
-  title: 'Fondasi yang dibutuhkan untuk mengelola implementasi ISO 27001.',
+  title: 'Fondasi yang dibutuhkan untuk mengelola implementasi ISO 27001',
   items: [
     {
       title: 'Client project workspace',
@@ -151,7 +150,7 @@ export const capabilities = {
 
 export const consultants = {
   eyebrow: 'Untuk Konsultan ISO 27001',
-  title: 'Berikan cara kerja yang konsisten kepada setiap client.',
+  title: 'Berikan cara kerja yang konsisten kepada setiap client',
   body:
     'GoverOne membantu tim konsultasi membawa struktur delivery yang sama ke setiap project tanpa menghilangkan kebutuhan untuk menyesuaikan implementasi dengan konteks client.',
   benefits: [
@@ -182,7 +181,7 @@ export const consultants = {
 
 export const companies = {
   eyebrow: 'Untuk ISO PIC dan Tim Perusahaan',
-  title: 'Pahami apa yang sedang dibangun bersama konsultan Anda.',
+  title: 'Pahami apa yang sedang dibangun bersama konsultan Anda',
   body:
     'GoverOne memberikan satu workspace bersama agar tim perusahaan dapat mengikuti implementasi, mengakses dokumen yang relevan, menyelesaikan review, dan mengumpulkan evidence tanpa kehilangan konteks project.',
   benefits: [
@@ -211,7 +210,7 @@ export const companies = {
 };
 
 export const traceability = {
-  title: 'Jangan hanya menyimpan dokumen. Hubungkan alasan, keputusan, dan buktinya.',
+  title: 'Jangan hanya menyimpan dokumen. Hubungkan alasan, keputusan, dan buktinya',
   body:
     'Sebuah dokumen atau evidence memiliki nilai lebih besar ketika tim dapat melihat risk yang melatarbelakanginya, control yang diterapkan, dan status implementasinya.',
   example: [
@@ -229,7 +228,7 @@ export const traceability = {
 };
 
 export const comparison = {
-  title: 'Dibangun untuk pekerjaan implementasi, bukan sekadar penyimpanan file.',
+  title: 'Dibangun untuk pekerjaan implementasi, bukan sekadar penyimpanan file',
   rows: [
     {
       label: 'Spreadsheet',
@@ -258,7 +257,7 @@ export const comparison = {
 };
 
 export const trustBoundary = {
-  title: 'Peran profesional tetap berada pada orang yang bertanggung jawab.',
+  title: 'Peran profesional tetap berada pada orang yang bertanggung jawab',
   body:
     'GoverOne membantu menyusun pekerjaan dan catatan implementasi. GoverOne tidak:',
   items: [
@@ -274,7 +273,7 @@ export const trustBoundary = {
 };
 
 export const finalCta = {
-  title: 'Mulai satu proyek ISO 27001 dengan struktur yang lebih baik.',
+  title: 'Mulai satu proyek ISO 27001 dengan struktur yang lebih baik',
   body:
     'Tunjukkan bagaimana tim Anda mengelola client project hari ini. Kami akan memperlihatkan bagaimana GoverOne dapat menyatukan risk, control, dokumen, approval, dan evidence dalam satu workspace bersama.',
   actions: [
