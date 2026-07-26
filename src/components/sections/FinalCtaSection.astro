@@ -2,7 +2,6 @@
 import Container from '../layout/Container.astro';
 import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
-import Button from '../ui/Button.astro';
 import { finalCta } from '../../content/landing-page';
 ---
 <MarketingSection id="final-cta" surface="dark" spacing="featured">
@@ -10,9 +9,6 @@ import { finalCta } from '../../content/landing-page';
     <div class="final-cta-grid reveal-section">
       <div class="final-cta-copy">
         <SectionHeading title={finalCta.title} body={finalCta.body} size="lg" />
-        <div class="final-cta__actions reveal-item">
-          <Button href="#demo-form" variant="primary" size="lg">{finalCta.actions[0].label}</Button>
-        </div>
         <p class="final-cta__microcopy reveal-item">{finalCta.microcopy}</p>
       </div>
       <form class="lead-form-card reveal-panel" id="demo-form" aria-label="Form minat demo GoverOne">
@@ -37,8 +33,8 @@ import { finalCta } from '../../content/landing-page';
             </select>
           </label>
           <label>
-            <span>Jumlah active project atau entity</span>
-            <input type="text" name="active-projects" placeholder="Contoh: 3 project" />
+            <span>Jumlah proyek atau entitas aktif</span>
+            <input type="text" name="active-projects" placeholder="Contoh: 3 proyek" />
           </label>
           <label class="lead-form-card__full">
             <span>Apakah sedang menjalankan ISO 27001?</span>
@@ -52,7 +48,7 @@ import { finalCta } from '../../content/landing-page';
             <textarea name="notes" rows="3" placeholder="Jelaskan workflow atau kebutuhan tim Anda"></textarea>
           </label>
           <label class="lead-form-card__full">
-            <span>Preferred demo schedule</span>
+            <span>Jadwal demo yang diinginkan</span>
             <input type="text" name="schedule" placeholder="Hari dan waktu yang nyaman" />
           </label>
         </div>

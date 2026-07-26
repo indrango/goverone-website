@@ -19,8 +19,7 @@ export const navigation = {
   brand: 'GoverOne',
   items: [
     { label: 'Product', href: '#product-capabilities' },
-    { label: 'Untuk Konsultan', href: '#consultants' },
-    { label: 'Untuk Perusahaan', href: '#companies' },
+    { label: 'Solusi', href: '#consultants' },
     { label: 'Cara Kerja', href: '#how-it-works' },
     { label: 'FAQ', href: '#faq' },
   ] satisfies NavItem[],
@@ -148,7 +147,7 @@ export const consultants = {
   audienceLabel: 'Untuk Konsultan',
   audienceTitle: 'Delivery lebih konsisten di setiap client',
   audienceBody:
-    'Bawa metode kerja yang sama ke banyak engagement tanpa kehilangan ruang untuk menyesuaikan implementasi dengan konteks organisasi client.',
+    'Bawa metode kerja yang sama ke banyak client project, tetap fleksibel mengikuti konteks organisasi.',
   benefits: [
     {
       title: 'Kelola banyak client project',
@@ -192,25 +191,23 @@ export const companies = {
 };
 
 export const traceability = {
-  title: 'Jangan hanya menyimpan dokumen. Hubungkan alasan, keputusan, dan buktinya',
+  title: 'Setiap evidence punya konteks',
   body:
-    'Sebuah dokumen atau evidence memiliki nilai lebih besar ketika tim dapat melihat risk yang melatarbelakanginya, control yang diterapkan, dan status implementasinya.',
-  example: [
-    'Risk',
-    'Akses tidak sah ke informasi penting',
-    'Control',
-    'Pengendalian akses ditetapkan',
-    'Document',
-    'Kebijakan dan prosedur akses',
-    'Evidence',
-    'Review akses dan bukti penerapan',
-  ],
-  supporting:
-    'GoverOne membantu tim membangun traceability yang lebih mudah dipahami selama implementasi dan ketika informasi perlu diperiksa kembali.',
+    'Hubungkan risk, control, dokumen, owner, dan status implementasi dalam satu alur yang mudah diperiksa kembali.',
+  frameTitle: 'Traceability map',
+  frameCaption:
+    'Satu control dapat ditelusuri ke alasan, dokumen pendukung, dan bukti penerapannya.',
+  map: {
+    control: 'Pengendalian akses ditetapkan',
+    risk: 'Akses tidak sah ke informasi penting',
+    document: 'Kebijakan dan prosedur akses',
+    evidence: 'Review akses dan bukti penerapan',
+    owner: 'PIC, progress, dan keputusan review',
+  },
 };
 
 export const comparison = {
-  title: 'Dibangun untuk pekerjaan implementasi, bukan sekadar penyimpanan file',
+  title: 'Dibangun untuk implementasi ISO 27001, bukan sekadar menyimpan file',
   rows: [
     {
       label: 'Spreadsheet',
@@ -230,12 +227,12 @@ export const comparison = {
     {
       label: 'GoverOne',
       manageable: 'Project, risk, control/SoA, document lifecycle, dan evidence',
-      limitation: 'Dibangun khusus untuk implementasi ISO 27001',
+      limitation: 'Struktur implementasi ISO 27001 terjaga dari risk sampai evidence',
       highlight: true,
     },
   ] satisfies ComparisonRow[],
   supporting:
-    'GoverOne tidak mencoba menjadi semua jenis GRC tool. Produk ini berfokus pada pekerjaan yang dilakukan konsultan dan client ketika membangun implementasi ISO 27001 bersama.',
+    'GoverOne tidak mencoba menjadi semua jenis GRC tool. Fokusnya adalah pekerjaan harian konsultan dan client saat membangun implementasi ISO 27001 bersama.',
 };
 
 export const trustBoundary = {
@@ -255,23 +252,23 @@ export const trustBoundary = {
 };
 
 export const finalCta = {
-  title: 'Mulai satu proyek ISO 27001 dengan struktur yang lebih baik',
+  title: 'Rapikan satu proyek ISO 27001 bersama tim Anda',
   body:
-    'Tunjukkan bagaimana tim Anda mengelola client project hari ini. Kami akan memperlihatkan bagaimana GoverOne dapat menyatukan risk, control, dokumen, approval, dan evidence dalam satu workspace bersama.',
+    'Tunjukkan workflow Anda hari ini. Kami akan memetakan bagaimana risk, control, dokumen, approval, dan evidence bisa berjalan dalam satu workspace bersama.',
   actions: [
     { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'primary' },
     { label: 'Diskusikan Pilot Project', href: '#footer', variant: 'secondary' },
   ] satisfies Action[],
   microcopy:
-    'Demo dapat disesuaikan untuk konsultan individual, consulting firm, atau perusahaan yang sedang bekerja bersama konsultan.',
+    'Demo disesuaikan untuk konsultan individual, consulting firm, atau perusahaan yang sedang bekerja bersama konsultan.',
   leadFormFields: [
     'Nama',
     'Email kerja',
     'Tipe organisasi: Konsultan / Perusahaan',
-    'Jumlah active project atau entity',
+    'Jumlah proyek atau entitas aktif',
     'Apakah sedang menjalankan ISO 27001?',
     'Catatan kebutuhan',
-    'Preferred demo schedule',
+    'Jadwal demo yang diinginkan',
   ],
 };
 
@@ -289,5 +286,5 @@ export const footer = {
     { label: 'Contact', href: '#final-cta' },
     { label: 'FAQ', href: '#faq' },
   ],
-  closingLine: 'GoverOne — ISO 27001 implementation workspace for consultants and clients.',
+  closingLine: 'Workspace implementasi ISO 27001 untuk konsultan dan client, dari risk sampai evidence.',
 };
