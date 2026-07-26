@@ -474,8 +474,9 @@ main { overflow: clip; }
 .capability-card__preview-row { display: flex; align-items: center; justify-content: space-between; gap: var(--go-space-3); }
 .capability-card__visual-header { margin-bottom: var(--go-space-2); color: var(--go-muted-foreground); font-size: 0.72rem; font-weight: 600; }
 .capability-card__status { color: var(--go-brand-primary); }
-.capability-card__preview-row { padding: var(--go-space-3); border: 1px solid var(--go-border); border-radius: var(--go-radius-md); background: var(--go-card); color: var(--go-muted-foreground); font-size: 0.72rem; }
-.capability-card__preview-row strong { color: var(--go-foreground); font-size: 0.7rem; }
+.capability-card__preview-row { padding: var(--go-space-3); border: 1px solid var(--go-border); border-radius: var(--go-radius-md); background: var(--go-card); color: var(--go-muted-foreground); font-size: 0.72rem; overflow: hidden; min-width: 0; }
+.capability-card__preview-row strong { color: var(--go-foreground); font-size: 0.7rem; white-space: nowrap; }
+.capability-card__preview-row span { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
 .capability-card__content { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
 .capability-card__content h3 { margin-top: var(--go-space-4); }
 
@@ -669,6 +670,7 @@ main { overflow: clip; }
   .capability-card { gap: var(--go-space-4); padding: var(--go-space-4); }
   .capability-card__visual { min-height: 0; }
   .capability-card__preview-row { padding: 10px; }
+  .capability-card__visual-header { flex-direction: column; align-items: flex-start; gap: var(--go-space-1); }
   .capability-card__content h3 { margin-top: var(--go-space-3); }
   .benefit-list { margin-top: var(--go-space-6); }
   .consultant-board__checklist { grid-template-columns: minmax(0, 1fr); }
