@@ -6,7 +6,10 @@ import { navigation } from '../../content/landing-page';
 <header class="site-header" id="top">
   <Container variant="content">
     <div class="site-header__inner">
-      <a class="site-brand" href="#hero">{navigation.brand}</a>
+      <a class="site-brand" href="#hero">
+        <span class="site-brand__mark" aria-hidden="true">G</span>
+        <span>{navigation.brand}</span>
+      </a>
       <nav class="site-nav site-nav--desktop" aria-label="Primary navigation">
         <ul>
           {navigation.items.map((item) => (
@@ -30,7 +33,9 @@ import { navigation } from '../../content/landing-page';
             <li><a href={item.href} data-mobile-link>{item.label}</a></li>
           ))}
         </ul>
-        <Button href={navigation.primaryCta.href} variant="primary" size="lg">{navigation.primaryCta.label}</Button>
+        <div class="site-nav__mobile-actions">
+          <Button href={navigation.primaryCta.href} variant="primary" size="lg">{navigation.primaryCta.label}</Button>
+        </div>
       </nav>
     </Container>
   </div>

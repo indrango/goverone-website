@@ -7,26 +7,26 @@ import { problemSection } from '../../content/landing-page';
 ---
 <MarketingSection id="problem" surface="muted" spacing="default">
   <Container variant="content">
-    <div class="section-split">
+    <div class="section-split section-split--problem reveal-section">
       <div>
         <SectionHeading title={problemSection.title} body={problemSection.paragraphs[0]} size="lg" />
         <p class="section-supporting-copy">{problemSection.paragraphs[1]}</p>
       </div>
-      <ProductFrame title="Informasi implementasi terpisah" caption="Konteks project mudah hilang ketika workflow tersebar">
-        <div class="fragmented-workflow">
+      <ProductFrame title="Implementasi terfragmentasi" caption="Masalah muncul saat tiap bagian project hidup di tempat yang berbeda.">
+        <div class="fragmented-workflow fragmented-workflow--board">
           <div class="fragmented-workflow__chips">
             {problemSection.diagram.map((item) => (
               <span class="fragment-chip">{item}</span>
             ))}
           </div>
           <div class="fragmented-workflow__arrow" aria-hidden="true">↓</div>
-          <div class="fragmented-workflow__result">Informasi implementasi terpisah</div>
+          <div class="fragmented-workflow__result">Status sulit dirangkum, approval lambat, evidence kehilangan konteks</div>
         </div>
       </ProductFrame>
     </div>
-    <div class="problem-card-grid">
+    <div class="problem-card-grid reveal-section">
       {problemSection.cards.map((card) => (
-        <article class="info-card">
+        <article class="info-card info-card--problem">
           <h3>{card.title}</h3>
           <p>{card.body}</p>
         </article>

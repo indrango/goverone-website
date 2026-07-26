@@ -8,9 +8,9 @@ import { howItWorks } from '../../content/landing-page';
 <MarketingSection id="how-it-works" surface="brand-subtle" spacing="default">
   <Container variant="content">
     <SectionHeading title={howItWorks.title} align="center" width="narrow" size="lg" />
-    <div class="workflow-grid">
+    <div class="workflow-grid workflow-grid--timeline reveal-section">
       {howItWorks.steps.map((step, index) => (
-        <article class="workflow-step">
+        <article class="workflow-step workflow-step--timeline">
           <div class="workflow-step__index">0{index + 1}</div>
           <h3>{step.title}</h3>
           <p>{step.body}</p>

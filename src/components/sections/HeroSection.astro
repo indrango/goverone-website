@@ -2,19 +2,68 @@
 import Container from '../layout/Container.astro';
 import Button from '../ui/Button.astro';
 import MarketingSection from '../ui/MarketingSection.astro';
-
 import Badge from '../ui/Badge.astro';
 import { hero } from '../../content/landing-page';
 ---
 <MarketingSection id="hero" spacing="featured" className="hero-section">
   <Container variant="content">
-    <div class="hero-grid">
+    <div class="hero-grid hero-grid--split reveal-section">
       <div class="hero-copy">
         <Badge variant="brand">{hero.eyebrow}</Badge>
         <h1>{hero.title}</h1>
         <p class="hero-copy__body">{hero.body}</p>
+        <p class="hero-copy__supporting">{hero.supportingLine}</p>
         <div class="hero-actions">
           <Button href={hero.actions[0].href} variant="primary" size="lg">{hero.actions[0].label}</Button>
+        </div>
+      </div>
+
+      <div class="hero-overview-card" aria-label="Preview workspace GoverOne">
+        <div class="hero-overview-card__header">
+          <div>
+            <p class="hero-overview-card__label">Overview proyek aktif</p>
+            <h2>Workspace implementasi yang tetap terbaca.</h2>
+          </div>
+          <Badge variant="info">In progress</Badge>
+        </div>
+
+        <div class="hero-overview-card__metrics">
+          <article>
+            <strong>12</strong>
+            <span>Control aktif</span>
+          </article>
+          <article>
+            <strong>5</strong>
+            <span>Dokumen direview</span>
+          </article>
+          <article>
+            <strong>18</strong>
+            <span>Evidence terhubung</span>
+          </article>
+        </div>
+
+        <div class="hero-overview-card__stack">
+          <div class="hero-overview-card__row hero-overview-card__row--active">
+            <div>
+              <strong>Risk register</strong>
+              <span>Pemilik, scoring, dan treatment</span>
+            </div>
+            <span class="status-chip status-chip--warning">Review</span>
+          </div>
+          <div class="hero-overview-card__row">
+            <div>
+              <strong>Statement of Applicability</strong>
+              <span>Applicability dan implementation status</span>
+            </div>
+            <span class="status-chip status-chip--info">Connected</span>
+          </div>
+          <div class="hero-overview-card__row">
+            <div>
+              <strong>Document approval</strong>
+              <span>Version history dan keputusan approver</span>
+            </div>
+            <span class="status-chip status-chip--success">Approved</span>
+          </div>
         </div>
       </div>
     </div>

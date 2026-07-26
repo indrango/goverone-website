@@ -17,7 +17,7 @@ for (let i = 0; i < labels.length; i++) {
 <MarketingSection id="traceability" surface="brand-subtle" spacing="featured">
   <Container variant="content">
     <SectionHeading title={traceability.title} body={traceability.body} align="center" width="narrow" size="lg" />
-    <ProductFrame title="Connected traceability" caption="Hubungan risk, control, document, dan evidence tetap dapat dibaca saat implementasi bergerak">
+    <ProductFrame className="traceability-frame" title="Connected traceability" caption="Hubungan risk, control, document, dan evidence tetap dapat dibaca saat implementasi bergerak">
       <div class="traceability-graph">
         {items.map((item, i) => (
           <>
@@ -30,6 +30,6 @@ for (let i = 0; i < labels.length; i++) {
         ))}
       </div>
     </ProductFrame>
-    <p class="section-supporting-copy section-supporting-copy--center">{traceability.supporting}</p>
+    <p class="section-supporting-copy section-supporting-copy--center traceability-supporting-copy">{traceability.supporting}</p>
   </Container>
 </MarketingSection>
