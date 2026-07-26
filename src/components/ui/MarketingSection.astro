@@ -12,7 +12,7 @@ const {
   spacing = 'default',
   className = '',
 } = Astro.props;
-const classes = ['marketing-section', `marketing-section--${surface}`, `marketing-section--${spacing}`, className].filter(Boolean).join(' ');
+const classes = ['marketing-section', 'reveal-section', `marketing-section--${surface}`, `marketing-section--${spacing}`, className].filter(Boolean).join(' ');
 ---
 <section id={id} class={classes}>
   <slot />

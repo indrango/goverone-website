@@ -15,7 +15,6 @@ import { navigation } from '../../content/landing-page';
         </ul>
       </nav>
       <div class="site-header__actions site-header__actions--desktop">
-        <a class="site-login-link" href={navigation.secondaryLink.href}>{navigation.secondaryLink.label}</a>
         <Button href={navigation.primaryCta.href} variant="primary" size="md">{navigation.primaryCta.label}</Button>
       </div>
       <button class="site-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
@@ -30,7 +29,6 @@ import { navigation } from '../../content/landing-page';
           {navigation.items.map((item) => (
             <li><a href={item.href} data-mobile-link>{item.label}</a></li>
           ))}
-          <li><a href={navigation.secondaryLink.href} data-mobile-link>{navigation.secondaryLink.label}</a></li>
         </ul>
         <Button href={navigation.primaryCta.href} variant="primary" size="lg">{navigation.primaryCta.label}</Button>
       </nav>

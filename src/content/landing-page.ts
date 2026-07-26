@@ -25,7 +25,6 @@ export const navigation = {
     { label: 'FAQ', href: '#faq' },
   ] satisfies NavItem[],
   primaryCta: { label: 'Jadwalkan Demo', href: '#final-cta', variant: 'primary' } satisfies Action,
-  secondaryLink: { label: 'Masuk', href: '#footer', variant: 'ghost' } satisfies Action,
 };
 
 export const hero = {
@@ -300,19 +299,14 @@ export const footer = {
     { label: 'Overview', href: '#hero' },
     { label: 'Features', href: '#product-capabilities' },
     { label: 'Cara Kerja', href: '#how-it-works' },
-    { label: 'Login', href: '#footer' },
   ],
   solutions: [
     { label: 'Untuk Konsultan', href: '#consultants' },
     { label: 'Untuk Perusahaan', href: '#companies' },
   ],
   company: [
-    { label: 'About', href: '#hero' },
     { label: 'Contact', href: '#final-cta' },
-  ],
-  legal: [
-    { label: 'Privacy Policy', href: '#footer' },
-    { label: 'Terms of Service', href: '#footer' },
+    { label: 'FAQ', href: '#faq' },
   ],
   closingLine: 'GoverOne — ISO 27001 implementation workspace for consultants and clients.',
 };

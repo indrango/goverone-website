@@ -159,6 +159,7 @@ main { overflow: clip; }
   z-index: 20;
   background: var(--go-header-bg);
   border-bottom: 1px solid var(--go-border);
+  backdrop-filter: blur(18px);
 }
 .site-header__inner {
   min-height: 72px;
@@ -176,9 +177,26 @@ main { overflow: clip; }
 .site-nav a,
 .site-login-link,
 .site-footer a { color: var(--go-muted-foreground); font-size: 0.875rem; }
+.site-nav a,
+.site-footer a { position: relative; }
+.site-nav a::after,
+.site-footer a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 1px;
+  background: var(--go-brand-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--go-motion-base) var(--go-ease-standard);
+}
 .site-nav a:hover,
 .site-login-link:hover,
 .site-footer a:hover { color: var(--go-foreground); }
+.site-nav a:hover::after,
+.site-footer a:hover::after { transform: scaleX(1); }
 .site-header__actions { display: flex; align-items: center; gap: var(--go-space-4); }
 .site-menu-button {
   display: none;
@@ -263,7 +281,13 @@ main { overflow: clip; }
 .section-supporting-copy { margin-top: var(--go-space-6); max-width: 68ch; }
 .section-supporting-copy--center { margin-inline: auto; text-align: center; }
 
-.hero-section { padding-block: var(--go-section-default); background: var(--go-background); border-bottom: 1px solid var(--go-border); }
+.hero-section {
+  padding-block: var(--go-section-default);
+  background:
+    radial-gradient(circle at 18% 18%, var(--go-brand-soft), transparent 32%),
+    linear-gradient(180deg, var(--go-background), var(--go-brand-subtle));
+  border-bottom: 1px solid var(--go-border);
+}
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--go-space-12); align-items: start; }
 .hero-copy { display: grid; gap: var(--go-space-4); max-width: 54rem; }
 .hero-copy h1 {
@@ -289,7 +313,9 @@ main { overflow: clip; }
   border-radius: var(--go-radius-xl);
   padding: var(--go-space-3);
   box-shadow: var(--go-shadow-soft);
+  transition: transform var(--go-motion-slow) var(--go-ease-standard), border-color var(--go-motion-slow) var(--go-ease-standard), box-shadow var(--go-motion-slow) var(--go-ease-standard);
 }
+.product-frame:hover { transform: translateY(-2px); border-color: var(--go-brand-border); box-shadow: var(--go-shadow-brand); }
 .hero-product-frame { width: 100%; max-width: 1120px; margin-inline: auto; }
 .product-frame__bar { padding: var(--go-space-4); border-bottom: 1px solid var(--go-border); }
 .product-frame__title,
@@ -341,7 +367,7 @@ main { overflow: clip; }
 .lead-form-card,
 .trust-panel { background: var(--go-card); border: 1px solid var(--go-border); border-radius: var(--go-radius-lg); }
 .project-card { padding: var(--go-space-4); }
-.project-card--active { background: var(--go-brand-subtle); border-color: var(--go-brand-border); }
+.project-card--active { background: var(--go-brand-subtle); border-color: var(--go-brand-border); box-shadow: inset 3px 0 0 var(--go-brand-primary); }
 .project-card strong,
 .connection-card strong,
 .traceability-card__value,
@@ -366,12 +392,20 @@ main { overflow: clip; }
 .consultant-board__column ul { margin: var(--go-space-3) 0 0; padding-left: 18px; color: var(--go-foreground); }
 .activity-strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .status-chip { display: inline-flex; min-height: 30px; align-items: center; justify-content: center; padding: 5px 10px; border: 1px solid var(--go-border); border-radius: var(--go-radius-pill); font-size: 0.72rem; font-weight: 550; text-align: center; }
+.status-chip--info { animation: status-pulse 3.6s var(--go-ease-standard) infinite; }
 .status-chip--muted { background: var(--go-secondary); color: var(--go-muted-foreground); }
 .connection-card { padding: var(--go-space-4); }
 .connection-line,
 .traceability-arrow,
 .fragmented-workflow__arrow,
 .relationship-flow__connector { color: var(--go-brand-primary); font-weight: 600; text-align: center; }
+.connection-line {
+  min-height: 26px;
+  background: linear-gradient(180deg, transparent, var(--go-brand-primary), transparent);
+  background-size: 100% 200%;
+  animation: connector-shimmer 5s var(--go-ease-standard) infinite;
+  opacity: 0.42;
+}
 
 .section-split,
 .final-cta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--go-space-12); align-items: center; }
@@ -386,6 +420,23 @@ main { overflow: clip; }
 .capability-card,
 .lead-form-card,
 .trust-panel { padding: clamp(20px, 2vw, 28px); }
+.info-card,
+.workflow-step,
+.capability-card,
+.benefit-item,
+.traceability-card,
+.faq-item {
+  transition: transform var(--go-motion-slow) var(--go-ease-standard), border-color var(--go-motion-slow) var(--go-ease-standard), box-shadow var(--go-motion-slow) var(--go-ease-standard);
+}
+.info-card:hover,
+.workflow-step:hover,
+.capability-card:hover,
+.traceability-card:hover,
+.faq-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--go-brand-border);
+  box-shadow: var(--go-shadow-soft);
+}
 .info-card h3,
 .workflow-step h3,
 .capability-card h3,
@@ -409,7 +460,15 @@ main { overflow: clip; }
 
 .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--go-space-8); }
 .capability-card { display: grid; grid-template-columns: minmax(150px, 0.8fr) minmax(0, 1.2fr); gap: var(--go-space-6); align-items: stretch; }
-.capability-card__visual { display: grid; align-content: center; gap: var(--go-space-2); padding: var(--go-space-4); border: 1px solid var(--go-brand-border); border-radius: var(--go-radius-lg); background: var(--go-brand-subtle); }
+.capability-card__visual {
+  display: grid;
+  align-content: center;
+  gap: var(--go-space-2);
+  padding: var(--go-space-4);
+  border: 1px solid var(--go-brand-border);
+  border-radius: var(--go-radius-lg);
+  background: linear-gradient(145deg, var(--go-brand-subtle), var(--go-card));
+}
 .capability-card__visual-header,
 .capability-card__preview-row { display: flex; align-items: center; justify-content: space-between; gap: var(--go-space-3); }
 .capability-card__visual-header { margin-bottom: var(--go-space-2); color: var(--go-muted-foreground); font-size: 0.72rem; font-weight: 600; }
@@ -478,11 +537,43 @@ main { overflow: clip; }
 .lead-form-card__submit:hover { background: var(--go-brand-primary-hover); }
 
 .site-footer { padding-block: var(--go-section-compact); border-top: 1px solid var(--go-border); background: var(--go-card); }
-.site-footer__grid { grid-template-columns: 1.4fr repeat(4, minmax(0, 1fr)); align-items: start; }
+.site-footer__grid { grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); align-items: start; }
 .site-footer__brand-block { display: grid; gap: var(--go-space-4); }
 .site-footer__closing { max-width: 30ch; }
 .site-footer__group h3 { font-size: 0.9rem; }
 .site-footer__group ul { display: grid; gap: var(--go-space-2); }
+
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(199, 85%, 27%, 0); }
+  50% { box-shadow: 0 0 0 6px hsla(199, 85%, 27%, 0.12); }
+}
+
+@keyframes connector-shimmer {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 200%; }
+}
+
+.reveal-section,
+.info-card,
+.workflow-step,
+.capability-card,
+.benefit-item,
+.traceability-card,
+.faq-item {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+}
+.reveal-section.is-visible,
+.info-card.is-visible,
+.workflow-step.is-visible,
+.capability-card.is-visible,
+.benefit-item.is-visible,
+.traceability-card.is-visible,
+.faq-item.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
 
 @media (max-width: 1023px) {
   .site-nav--desktop,
@@ -536,7 +627,7 @@ main { overflow: clip; }
 
   .hero-grid { gap: var(--go-space-8); }
   .hero-copy { gap: var(--go-space-4); }
-  .hero-copy h1 { max-width: none; font-size: 2.25rem; line-height: 1.06; text-wrap: normal; }
+  .hero-copy h1 { max-width: none; font-size: clamp(2.25rem, 11vw, 2.5rem); line-height: 1.06; text-wrap: normal; }
   .hero-copy__body { font-size: 1rem; line-height: 1.58; }
   .hero-copy__supporting { font-size: 0.82rem; }
   .hero-copy .badge { width: fit-content; max-width: 100%; min-height: 28px; padding: 4px 9px; font-size: 0.7rem; }
@@ -614,6 +705,13 @@ main { overflow: clip; }
 
 @media (max-width: 359px) {
   .hero-actions { grid-template-columns: minmax(0, 1fr); }
+  .container-shell,
+  .container-shell--max,
+  .container-shell--content,
+  .container-shell--reading,
+  .container-shell--narrow { width: min(calc(100% - 24px), var(--go-content-max)); }
+  .control-metadata { grid-template-columns: minmax(0, 1fr); }
+  .capability-card__preview-row { display: grid; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -624,5 +722,15 @@ main { overflow: clip; }
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+  .reveal-section,
+  .info-card,
+  .workflow-step,
+  .capability-card,
+  .benefit-item,
+  .traceability-card,
+  .faq-item {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
