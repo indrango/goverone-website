@@ -6,10 +6,7 @@ import { navigation } from '../../content/landing-page';
 <header class="site-header" id="top">
   <Container variant="content">
     <div class="site-header__inner">
-      <a class="site-brand" href="#hero">
-        <span class="site-brand__mark" aria-hidden="true">G</span>
-        <span>{navigation.brand}</span>
-      </a>
+      <a class="site-brand" href="#hero">{navigation.brand}</a>
       <nav class="site-nav site-nav--desktop" aria-label="Primary navigation">
         <ul>
           {navigation.items.map((item) => (
@@ -68,5 +65,29 @@ import { navigation } from '../../content/landing-page';
     window.addEventListener('resize', () => {
       if (window.innerWidth >= 768) closeMenu();
     });
+  }
+
+  const header = document.getElementById('top');
+  const heroSection = document.getElementById('hero');
+  if (header && heroSection && 'IntersectionObserver' in window) {
+    let observer;
+
+    const observeHero = () => {
+      observer?.disconnect();
+      const headerHeight = header.getBoundingClientRect().height;
+      observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          document.body.removeAttribute('data-scrolled');
+        } else {
+          document.body.setAttribute('data-scrolled', '');
+        }
+      }, { rootMargin: `-${headerHeight}px 0px 0px 0px`, threshold: 0 });
+      observer.observe(heroSection);
+    };
+
+    observeHero();
+    window.addEventListener('resize', observeHero);
+  } else {
+    document.body.setAttribute('data-scrolled', '');
   }
 </script>

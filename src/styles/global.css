@@ -154,12 +154,26 @@ main { overflow: clip; }
 .marketing-section--dark { background: var(--go-dark); color: var(--go-dark-foreground); }
 
 .site-header {
-  position: sticky;
+  position: fixed;
+  inset-inline: 0;
   top: 0;
-  z-index: 20;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  transition: background var(--go-motion-slow) var(--go-ease-standard), border-color var(--go-motion-slow) var(--go-ease-standard), backdrop-filter var(--go-motion-slow) var(--go-ease-standard);
+}
+body[data-scrolled] .site-header {
   background: var(--go-header-bg);
   border-bottom: 1px solid var(--go-border);
   backdrop-filter: blur(18px);
+}
+body[data-scrolled] .site-header .site-brand,
+body[data-scrolled] .site-header .site-nav a {
+  color: var(--go-muted-foreground);
+}
+body[data-scrolled] .site-header .site-nav a:hover {
+  color: var(--go-foreground);
 }
 .site-header__inner {
   min-height: 72px;
@@ -283,7 +297,11 @@ main { overflow: clip; }
 .section-supporting-copy--center { margin-inline: auto; text-align: center; }
 
 .hero-section {
-  padding-block: var(--go-section-default);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(72px + var(--go-section-default));
+  padding-bottom: var(--go-section-default);
   background:
     radial-gradient(circle at 18% 18%, var(--go-brand-soft), transparent 32%),
     linear-gradient(180deg, var(--go-background), var(--go-brand-subtle));
