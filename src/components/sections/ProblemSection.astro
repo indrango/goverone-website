@@ -12,15 +12,20 @@ import { problemSection } from '../../content/landing-page';
         <SectionHeading title={problemSection.title} body={problemSection.paragraphs[0]} size="lg" />
         <p class="section-supporting-copy reveal-item">{problemSection.paragraphs[1]}</p>
       </div>
-      <ProductFrame title="Implementasi terfragmentasi" caption="Masalah muncul saat tiap bagian project hidup di tempat yang berbeda.">
-        <div class="fragmented-workflow fragmented-workflow--board">
-          <div class="fragmented-workflow__chips">
-            {problemSection.diagram.map((item) => (
-              <span class="fragment-chip">{item}</span>
+      <ProductFrame title="Traceability terputus" caption="Masalah muncul ketika alur implementasi tidak punya konteks bersama.">
+        <div class="trace-breakdown" aria-label="Alur traceability implementasi yang terputus">
+          <div class="trace-breakdown__chain">
+            {problemSection.diagram.map((item, index) => (
+              <>
+                <span class={`trace-breakdown__node ${index === problemSection.diagram.length - 1 ? 'trace-breakdown__node--orphan' : ''}`}>{item}</span>
+                {index < problemSection.diagram.length - 1 && <span class={`trace-breakdown__connector ${index === 1 || index === 3 ? 'trace-breakdown__connector--broken' : ''}`} aria-hidden="true"></span>}
+              </>
             ))}
           </div>
-          <div class="fragmented-workflow__arrow" aria-hidden="true">↓</div>
-          <div class="fragmented-workflow__result">Status sulit dirangkum, approval lambat, evidence kehilangan konteks</div>
+          <div class="trace-breakdown__impact">
+            <strong>Manual reconciliation</strong>
+            <span>Status lambat, approval kabur, evidence sulit dibaca.</span>
+          </div>
         </div>
       </ProductFrame>
     </div>

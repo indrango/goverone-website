@@ -5,21 +5,43 @@ import SectionHeading from '../ui/SectionHeading.astro';
 import ProductFrame from '../ui/ProductFrame.astro';
 import { transitionSection } from '../../content/landing-page';
 ---
-<MarketingSection id="transition" spacing="default">
+<MarketingSection id="transition" spacing="default" className="marketing-section--full-height">
   <Container variant="content">
     <div class="section-split section-split--reverse">
-      <ProductFrame title="Implementation relationship map" caption="Risk, control, document, approval, dan evidence tetap terlihat dalam satu jalur">
-        <div class="relationship-flow">
-          {transitionSection.relationship.map((item, index) => (
-            <>
-              <div class="relationship-flow__node">{item}</div>
-              {index < transitionSection.relationship.length - 1 && <div class="relationship-flow__connector" aria-hidden="true">↓</div>}
-            </>
-          ))}
+      <ProductFrame title="Catatan implementasi" caption="Semua artefak project terbaca sebagai satu konteks kerja.">
+        <div class="implementation-record" aria-label="Contoh catatan implementasi yang menyatukan risk, control, dokumen, approval, dan evidence">
+          <div class="implementation-record__header">
+            <span>Client Project</span>
+            <strong>ISO 27001 Implementation</strong>
+          </div>
+          <div class="implementation-record__body">
+            <div class="implementation-record__primary">
+              <span>Risk</span>
+              <strong>Unauthorized access to customer data</strong>
+            </div>
+            <div class="implementation-record__grid">
+              <div>
+                <span>Control</span>
+                <strong>A.5.15 Access Control</strong>
+                <small>Status: In progress</small>
+              </div>
+              <div>
+                <span>Document</span>
+                <strong>Access Control Policy</strong>
+                <small>Approval: Waiting review</small>
+              </div>
+              <div>
+                <span>Evidence</span>
+                <strong>access-review.xlsx</strong>
+                <small>Linked to A.5.15</small>
+              </div>
+            </div>
+          </div>
         </div>
       </ProductFrame>
       <div>
         <SectionHeading title={transitionSection.title} body={transitionSection.body} size="lg" />
+        <p class="section-supporting-copy reveal-item">{transitionSection.supporting}</p>
       </div>
     </div>
   </Container>

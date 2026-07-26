@@ -3,48 +3,50 @@ import Container from '../layout/Container.astro';
 import MarketingSection from '../ui/MarketingSection.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 import Button from '../ui/Button.astro';
-import ProductFrame from '../ui/ProductFrame.astro';
-import { consultants } from '../../content/landing-page';
+import { consultants, companies } from '../../content/landing-page';
 ---
 <MarketingSection id="consultants" surface="muted" spacing="default">
   <Container variant="content">
-    <div class="section-split">
-      <div>
-        <SectionHeading title={consultants.title} body={consultants.body} size="lg" />
-        <div class="benefit-list">
-          {consultants.benefits.map((benefit) => (
-            <article class="benefit-item">
-              <h3>{benefit.title}</h3>
-              <p>{benefit.body}</p>
-            </article>
-          ))}
-        </div>
-        <div class="section-actions reveal-item">
-          <Button href={consultants.cta.href} variant="primary" size="lg">{consultants.cta.label}</Button>
-        </div>
+    <div class="audience-value-section">
+      <SectionHeading title={consultants.title} body={consultants.body} size="lg" />
+
+      <div class="audience-value-grid">
+        <article class="audience-value-card audience-value-card--consultant reveal-panel">
+          <div class="audience-value-card__header">
+            <span>{consultants.audienceLabel}</span>
+            <h3>{consultants.audienceTitle}</h3>
+            <p>{consultants.audienceBody}</p>
+          </div>
+          <ul class="audience-value-card__list">
+            {consultants.benefits.map((benefit) => (
+              <li>
+                <strong>{benefit.title}</strong>
+                <span>{benefit.body}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+
+        <article class="audience-value-card audience-value-card--company reveal-panel">
+          <div class="audience-value-card__header">
+            <span>{companies.audienceLabel}</span>
+            <h3>{companies.audienceTitle}</h3>
+            <p>{companies.audienceBody}</p>
+          </div>
+          <ul class="audience-value-card__list">
+            {companies.benefits.map((benefit) => (
+              <li>
+                <strong>{benefit.title}</strong>
+                <span>{benefit.body}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
-      <ProductFrame title="Consultant portfolio workflow" caption="Satu workspace untuk menjaga struktur delivery pada banyak client project">
-        <div class="consultant-board">
-          <div class="consultant-board__column">
-            <h3>Active clients</h3>
-            <ul>
-              <li>Client project A</li>
-              <li>Client project B</li>
-              <li>Client project C</li>
-            </ul>
-          </div>
-          <div class="consultant-board__column consultant-board__column--wide">
-            <h3>Delivery structure</h3>
-            <div class="consultant-board__checklist">
-              <span>Risk register</span>
-              <span>Annex A control mapping</span>
-              <span>Document templates</span>
-              <span>Approval & version history</span>
-              <span>Evidence linkage</span>
-            </div>
-          </div>
-        </div>
-      </ProductFrame>
+
+      <div class="section-actions reveal-item">
+        <Button href={consultants.cta.href} variant="primary" size="lg">{consultants.cta.label}</Button>
+      </div>
     </div>
   </Container>
 </MarketingSection>
