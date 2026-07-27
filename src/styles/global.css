@@ -634,16 +634,6 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
   gap: var(--go-space-3);
   align-items: center;
 }
-.problem-visual--scattered::after {
-  content: "";
-  position: absolute;
-  top: 48%;
-  left: 26%;
-  right: 18%;
-  border-top: 1px dashed var(--go-brand-primary);
-  opacity: 0.34;
-  transform: rotate(-9deg);
-}
 .problem-visual--approval {
   display: flex;
   flex-wrap: wrap;
