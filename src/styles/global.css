@@ -565,6 +565,141 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
 .site-footer__group h3,
 .consultant-board__column h3 { margin: 0 0 var(--go-space-3); color: var(--go-foreground); font-size: 1.0625rem; line-height: 1.4; }
 .info-card--problem { background: linear-gradient(180deg, var(--go-card), hsl(220 40% 99%)); }
+.problem-signal-grid { align-items: stretch; }
+.problem-signal-card {
+  display: grid;
+  grid-template-columns: minmax(205px, 0.95fr) minmax(0, 1.05fr);
+  gap: var(--go-space-5);
+  min-height: 100%;
+  background: linear-gradient(180deg, var(--go-card), hsl(220 55% 99%));
+  box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.66);
+}
+.problem-signal-card__visual {
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-height: 136px;
+  overflow: hidden;
+  padding: var(--go-space-4);
+  border: 1px solid var(--go-brand-border);
+  border-radius: var(--go-radius-lg);
+  background:
+    radial-gradient(circle at 18% 10%, hsl(220 80% 58% / 0.11), transparent 34%),
+    linear-gradient(135deg, hsl(220 70% 98%), var(--go-card));
+}
+.problem-signal-card__visual::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px dashed hsl(220 70% 50% / 0.16);
+  border-radius: var(--go-radius-md);
+  pointer-events: none;
+}
+.problem-signal-card__copy { display: grid; align-content: center; gap: var(--go-space-2); }
+.problem-signal-card__copy h3 { margin-bottom: 0; }
+.problem-signal-card__label {
+  width: fit-content;
+  color: var(--go-brand-primary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.problem-visual { position: relative; z-index: 1; }
+.problem-signal-chip,
+.problem-signal-control,
+.problem-signal-file,
+.problem-signal-client-row span {
+  border: 1px solid var(--go-border);
+  border-radius: var(--go-radius-md);
+  background: var(--go-card);
+  color: var(--go-foreground);
+  box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.7);
+}
+.problem-signal-chip {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.problem-signal-chip--muted { background: var(--go-secondary); color: var(--go-muted-foreground); }
+.problem-signal-chip--orphan { border-style: dashed; color: var(--go-muted-foreground); transform: translateY(8px); }
+.problem-visual--scattered {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--go-space-3);
+  align-items: center;
+}
+.problem-visual--approval {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--go-space-2);
+  align-items: center;
+}
+.problem-visual--approval .status-chip:nth-child(2) { transform: translateY(8px); }
+.problem-visual--approval .status-chip:nth-child(3) { margin-left: -6px; opacity: 0.88; }
+.problem-visual--approval .status-chip:nth-child(4) { transform: translate(-4px, -7px); }
+.problem-visual--evidence {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) 18px minmax(0, 0.84fr);
+  gap: var(--go-space-2);
+  align-items: center;
+}
+.problem-signal-file,
+.problem-signal-control {
+  display: grid;
+  gap: var(--go-space-1);
+  min-width: 0;
+  min-height: 84px;
+  padding: 10px;
+}
+.problem-signal-file span {
+  width: 30px;
+  height: 34px;
+  border: 1px solid var(--go-brand-border);
+  border-radius: var(--go-radius-xs);
+  background: linear-gradient(180deg, var(--go-brand-subtle), var(--go-card));
+}
+.problem-signal-file strong,
+.problem-signal-control strong { color: var(--go-foreground); font-size: 0.72rem; line-height: 1.25; overflow-wrap: anywhere; }
+.problem-signal-file small,
+.problem-signal-control small,
+.problem-signal-control span { color: var(--go-muted-foreground); font-size: 0.68rem; line-height: 1.35; }
+.problem-signal-line { height: 1px; background: var(--go-brand-primary); opacity: 0.38; }
+.problem-signal-line--broken { border-top: 1px dashed var(--go-status-destructive-fg); background: transparent; opacity: 0.72; }
+.problem-signal-control { border-style: dashed; }
+.problem-signal-control span { color: var(--go-status-destructive-fg); font-weight: 650; }
+.problem-visual--delivery { display: grid; gap: var(--go-space-2); }
+.problem-signal-client-row {
+  display: flex;
+  align-items: center;
+  gap: var(--go-space-2);
+}
+.problem-signal-client-row strong {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: var(--go-radius-pill);
+  background: var(--go-brand-subtle);
+  color: var(--go-brand-primary);
+  font-size: 0.72rem;
+}
+.problem-signal-client-row span {
+  min-height: 28px;
+  min-width: 0;
+  padding: 6px 7px;
+  color: var(--go-muted-foreground);
+  font-size: 0.64rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
 .fragmented-workflow { display: grid; gap: var(--go-space-4); justify-items: center; padding-block: var(--go-space-4); }
 .fragmented-workflow__chips { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--go-space-3); }
@@ -1418,6 +1553,8 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
   }
   .trace-breakdown__node:nth-of-type(2)::after,
   .trace-breakdown__node:nth-of-type(4)::after { border-left-style: dashed; }
+  .problem-signal-card { grid-template-columns: minmax(0, 1fr); }
+  .problem-signal-card__visual { min-height: 128px; }
   .site-footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .site-footer__brand-block { grid-column: 1 / -1; }
 }
@@ -1485,6 +1622,11 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
   .final-cta-grid { gap: var(--go-space-8); }
   .problem-card-grid,
   .capability-grid { grid-template-columns: minmax(0, 1fr); gap: var(--go-space-4); margin-top: var(--go-space-6); }
+  .problem-signal-card { grid-template-columns: minmax(0, 1fr); gap: var(--go-space-4); padding: var(--go-space-4); }
+  .problem-signal-card__visual { min-height: 116px; padding: var(--go-space-3); }
+  .problem-visual--evidence { grid-template-columns: minmax(0, 1fr); }
+  .problem-signal-line { width: 1px; height: var(--go-space-3); justify-self: center; border-left: 1px dashed var(--go-status-destructive-fg); border-top: 0; }
+  .problem-signal-client-row { flex-wrap: wrap; }
   .implementation-record__grid { grid-template-columns: minmax(0, 1fr); }
   .implementation-record__grid > div { min-height: 0; }
   .info-card { padding: var(--go-space-5, 20px); }

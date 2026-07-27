@@ -1,7 +1,7 @@
 export type NavItem = { label: string; href: string };
 export type LinkItem = { label: string; href: string };
 export type Action = { label: string; href: string; variant?: 'primary' | 'secondary' | 'outline' | 'ghost' };
-export type TextItem = { title: string; body: string };
+export type TextItem = { title: string; body: string; label?: string; visual?: string };
 export type Step = { title: string; body: string };
 export type Capability = { title: string; body: string; badge: string; signal: string; details: string[]; visual: string[]; featured?: boolean };
 export type Benefit = { title: string; body: string };
