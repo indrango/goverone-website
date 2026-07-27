@@ -1335,10 +1335,21 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
     border-radius: var(--go-radius-lg);
     background: linear-gradient(180deg, var(--go-card), hsl(220 55% 99%));
     box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.65);
+    transition: border-color var(--go-motion-slow) var(--go-ease-standard), background var(--go-motion-slow) var(--go-ease-standard), box-shadow var(--go-motion-slow) var(--go-ease-standard);
   }
   .marketing-section--runway-sequence .implementation-runway__marker {
     position: relative;
     z-index: 1;
+    transition: transform var(--go-motion-slow) var(--go-ease-standard), box-shadow var(--go-motion-slow) var(--go-ease-standard), background var(--go-motion-slow) var(--go-ease-standard);
+  }
+  .marketing-section--runway-sequence .implementation-runway__step--active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  .marketing-section--runway-sequence .implementation-runway__step--active .implementation-runway__marker {
+    transform: scale(1.04);
+    background: var(--go-brand-subtle);
+    box-shadow: 0 0 0 6px hsl(220 78% 58% / 0.08);
   }
   .marketing-section--runway-sequence .implementation-runway__step--active > div:last-child {
     border-color: var(--go-brand-border);

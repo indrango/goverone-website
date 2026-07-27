@@ -29,21 +29,96 @@ import { howItWorks } from '../../content/landing-page';
 </MarketingSection>
 
 <script>
+  const controllerKey = '__runwayController';
+
   const setupRunwaySequence = () => {
     const section = document.querySelector('[data-runway-sequence]');
-    if (!(section instanceof HTMLElement) || section.dataset.runwayReady === 'true') return;
-    section.dataset.runwayReady = 'true';
+    if (!(section instanceof HTMLElement)) return;
+
+    section[controllerKey]?.cleanup?.();
 
     const steps = Array.from(section.querySelectorAll('[data-runway-step]'));
+    const markers = Array.from(section.querySelectorAll('[data-runway-marker]'));
     if (!steps.length) return;
 
-    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const cleanupFns = [];
 
-    steps.forEach((step, index) => {
-      step.classList.add('implementation-runway__step--visible');
-      step.classList.toggle('implementation-runway__step--active', isDesktop && !reduceMotion && index === 0);
-    });
+    const setActiveStep = (activeIndex) => {
+      steps.forEach((step, index) => {
+        const isActive = index === activeIndex;
+        step.classList.add('implementation-runway__step--visible');
+        step.classList.toggle('implementation-runway__step--active', isActive);
+        step.setAttribute('aria-current', isActive ? 'step' : 'false');
+      });
+
+      markers.forEach((marker, index) => {
+        marker.classList.toggle('is-active', index === activeIndex);
+      });
+    };
+
+    const enableStaticMode = () => {
+      delete section.dataset.runwayDesktop;
+      setActiveStep(0);
+    };
+
+    const enableScrollMode = () => {
+      section.dataset.runwayDesktop = 'true';
+
+      const updateActiveFromScroll = () => {
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        const sectionCenter = rect.top + (rect.height / 2);
+        const centerStart = viewportHeight * 0.8;
+        const centerEnd = viewportHeight * 0.2;
+        const totalDistance = Math.max(centerStart - centerEnd, 1);
+        const progress = (centerStart - sectionCenter) / totalDistance;
+        const clampedProgress = Math.min(Math.max(progress, 0), 1);
+        const activeIndex = Math.min(steps.length - 1, Math.round(clampedProgress * (steps.length - 1)));
+
+        setActiveStep(activeIndex);
+      };
+
+      let ticking = false;
+      const requestUpdate = () => {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          updateActiveFromScroll();
+          ticking = false;
+        });
+      };
+
+      requestUpdate();
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+      cleanupFns.push(() => window.removeEventListener('scroll', requestUpdate));
+      cleanupFns.push(() => window.removeEventListener('resize', requestUpdate));
+    };
+
+    const syncMode = () => {
+      if (!desktopQuery.matches || motionQuery.matches) {
+        enableStaticMode();
+        return;
+      }
+
+      enableScrollMode();
+    };
+
+    syncMode();
+    desktopQuery.addEventListener('change', syncMode);
+    motionQuery.addEventListener('change', syncMode);
+    cleanupFns.push(() => desktopQuery.removeEventListener('change', syncMode));
+    cleanupFns.push(() => motionQuery.removeEventListener('change', syncMode));
+
+    section[controllerKey] = {
+      cleanup: () => {
+        while (cleanupFns.length) {
+          cleanupFns.pop()?.();
+        }
+      },
+    };
   };
 
   setupRunwaySequence();
