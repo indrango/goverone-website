@@ -46,18 +46,26 @@ export const problemSection = {
     {
       title: 'Konteks hilang',
       body: 'Keputusan dan revisi tersebar di banyak tempat.',
+      label: 'Context',
+      visual: 'scattered-context',
     },
     {
       title: 'Approval kabur',
       body: 'Draft, review, approved, dan revisi sulit dibedakan.',
+      label: 'Approval',
+      visual: 'ambiguous-approval',
     },
     {
       title: 'Evidence lepas konteks',
       body: 'File tersedia, tapi tidak jelas mendukung control apa.',
+      label: 'Evidence',
+      visual: 'unlinked-evidence',
     },
     {
       title: 'Delivery tidak konsisten',
       body: 'Tiap klien mengikuti struktur kerja yang berbeda.',
+      label: 'Delivery',
+      visual: 'inconsistent-delivery',
     },
   ] satisfies TextItem[],
   diagram: ['Risk', 'Control', 'Document', 'Approval', 'Evidence'],
