@@ -1553,6 +1553,8 @@ body[data-menu-open='true'] .site-header .site-nav a:hover {
   }
   .trace-breakdown__node:nth-of-type(2)::after,
   .trace-breakdown__node:nth-of-type(4)::after { border-left-style: dashed; }
+  .problem-signal-card { grid-template-columns: minmax(0, 1fr); }
+  .problem-signal-card__visual { min-height: 128px; }
   .site-footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .site-footer__brand-block { grid-column: 1 / -1; }
 }

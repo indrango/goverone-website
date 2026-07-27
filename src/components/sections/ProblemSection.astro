@@ -30,8 +30,8 @@ import { problemSection } from '../../content/landing-page';
       </ProductFrame>
     </div>
     <div class="problem-card-grid problem-signal-grid reveal-section">
-      {problemSection.cards.map((card) => (
-        <article class="info-card problem-signal-card">
+      {problemSection.cards.map((card, index) => (
+        <article class="info-card problem-signal-card" style={`--reveal-delay: ${210 + index * 70}ms`}>
           <div class={`problem-signal-card__visual problem-signal-card__visual--${card.visual}`} aria-hidden="true">
             {card.visual === 'scattered-context' && (
               <div class="problem-visual problem-visual--scattered">
