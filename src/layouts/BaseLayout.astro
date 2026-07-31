@@ -8,9 +8,33 @@ interface Props {
 }
 
 const { title, description, canonicalPath = '/' } = Astro.props;
-const siteUrl = Astro.site ?? 'https://goverone.id';
+const siteUrl = Astro.site ?? 'https://goverone.com';
 const canonical = new URL(canonicalPath, siteUrl).toString();
 const ogImage = new URL('/og/goverone-og.png', siteUrl).toString();
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      name: 'GoverOne',
+      url: siteUrl,
+      logo: ogImage,
+      description,
+      sameAs: [],
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'GoverOne',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      description,
+      offers: {
+        '@type': 'Offer',
+        category: 'BusinessSoftware',
+      },
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="id">
@@ -29,6 +53,9 @@ const ogImage = new URL('/og/goverone-og.png', siteUrl).toString();
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <!-- PostHog Analytics -->
+    <script defer src="/js/posthog.js"></script>
   </head>
   <body>
     <slot />

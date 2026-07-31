@@ -1,9 +1,11 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://goverone.id',
+  site: 'https://goverone.com',
   output: 'static',
+  integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
   },
