@@ -127,6 +127,10 @@ import { finalCta } from '../../content/landing-page';
       });
 
       if (response.ok) {
+        window.posthog?.capture('demo_request_submitted', {
+          organization_type: formData.get('organization-type'),
+          iso_status: formData.get('iso-status'),
+        });
         showFeedback('Terima kasih! Kami akan menghubungi Anda untuk menjadwalkan demo.', 'success');
         form.reset();
       } else {
